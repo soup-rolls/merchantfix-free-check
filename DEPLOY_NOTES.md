@@ -4,6 +4,14 @@
 
 Use any static host. No backend is required.
 
+Live URL:
+
+`https://soup-rolls.github.io/merchantfix-free-check/`
+
+GitHub repository:
+
+`https://github.com/soup-rolls/merchantfix-free-check`
+
 Recommended order:
 
 1. Netlify Drop
