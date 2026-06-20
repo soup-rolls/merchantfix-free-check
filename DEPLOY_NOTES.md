@@ -28,8 +28,9 @@ Upload the full folder:
 Required files:
 
 - `index.html`
-- `styles.css`
 - `assets/merchantfix-icon.png`
+
+`index.html` now includes the critical CSS inline. `styles.css` is kept locally as an editable source backup, but the live page no longer depends on a separate CSS request.
 
 ## After Deploy
 
