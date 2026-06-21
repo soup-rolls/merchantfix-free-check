@@ -9,23 +9,58 @@
       content="Free public-page evidence check for online stores preparing Google Merchant Center review. No login, no admin access, no appeal submission."
     />
     <link rel="canonical" href="https://soup-rolls.github.io/merchantfix-free-check/" />
-    <link rel="icon" href="assets/merchantfix-icon.png" />
+    <link rel="preconnect" href="https://tally.so" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="assets/merchantfix-icon.png" />
+    <link rel="apple-touch-icon" href="assets/merchantfix-icon.png" />
+    <meta name="theme-color" content="#27735e" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MerchantFix Free Page Evidence Check" />
+    <meta property="og:description" content="Free public-page evidence check for online stores preparing Google Merchant Center review. No login, no admin access, no appeal submission." />
+    <meta property="og:url" content="https://soup-rolls.github.io/merchantfix-free-check/" />
+    <meta property="og:image" content="https://soup-rolls.github.io/merchantfix-free-check/assets/merchantfix-og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MerchantFix Free Page Evidence Check" />
+    <meta name="twitter:description" content="Free public-page evidence check for online stores preparing Google Merchant Center review. No login, no admin access, no appeal submission." />
+    <meta name="twitter:image" content="https://soup-rolls.github.io/merchantfix-free-check/assets/merchantfix-og.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "MerchantFix Free Page Evidence Check",
-        "url": "https://soup-rolls.github.io/merchantfix-free-check/",
-        "applicationCategory": "BusinessApplication",
-        "description": "Free public-page evidence check for online stores preparing Google Merchant Center review. No login, no admin access, no appeal submission.",
-        "operatingSystem": "Web"
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://soup-rolls.github.io/merchantfix-free-check/#organization",
+            "name": "MerchantFix",
+            "url": "https://soup-rolls.github.io/merchantfix-free-check/",
+            "logo": "https://soup-rolls.github.io/merchantfix-free-check/assets/merchantfix-icon.png",
+            "sameAs": ["https://github.com/soup-rolls/merchantfix-free-check"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://soup-rolls.github.io/merchantfix-free-check/#website",
+            "url": "https://soup-rolls.github.io/merchantfix-free-check/",
+            "name": "MerchantFix",
+            "publisher": {
+              "@id": "https://soup-rolls.github.io/merchantfix-free-check/#organization"
+            }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://soup-rolls.github.io/merchantfix-free-check/#app",
+            "name": "MerchantFix Free Page Evidence Check",
+            "url": "https://soup-rolls.github.io/merchantfix-free-check/",
+            "applicationCategory": "BusinessApplication",
+            "description": "Free public-page evidence check for online stores preparing Google Merchant Center review. No login, no admin access, no appeal submission.",
+            "operatingSystem": "Web"
+          }
+        ]
       }
     </script>
     <style>
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --ink: #151613;
-  --muted: #62665d;
+  --muted: #52574d;
   --line: #dfe3d8;
   --paper: #f8f7f1;
   --panel: #ffffff;
@@ -52,6 +87,38 @@ body {
 
 a {
   color: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 20;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--accent-dark);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.brand:focus-visible,
+.nav-link:focus-visible,
+.primary:focus-visible,
+.secondary:focus-visible,
+.directory-links a:focus-visible,
+.library-link a:focus-visible,
+.site-footer-links a:focus-visible {
+  outline: 3px solid rgba(39, 115, 94, 0.28);
+  outline-offset: 3px;
 }
 
 .nav {
@@ -395,7 +462,9 @@ h2 {
 
 .scan-line {
   position: absolute;
-  inset: 18px 18px auto;
+  left: 18px;
+  right: 18px;
+  top: 46px;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   animation: scan 2.8s ease-in-out infinite;
@@ -556,6 +625,38 @@ h2 {
   margin-top: 28px;
 }
 
+.site-footer {
+  padding: 28px clamp(20px, 6vw, 88px) 48px;
+  border-top: 1px solid var(--line);
+  background: #fffef9;
+}
+
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px 28px;
+  align-items: start;
+}
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.site-footer-links a {
+  color: var(--accent-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .library-link {
   margin-top: 18px;
   font-size: 13px;
@@ -569,11 +670,11 @@ h2 {
 @keyframes scan {
   0%,
   100% {
-    transform: translateY(46px);
+    top: 46px;
     opacity: 0.15;
   }
   50% {
-    transform: translateY(378px);
+    top: calc(100% - 40px);
     opacity: 0.9;
   }
 }
@@ -648,20 +749,90 @@ h2 {
   .secondary {
     width: 100%;
   }
+
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .primary,
+  .secondary,
+  .scan-line,
+  .instant-panel,
+  .scan-plane {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #f4f6f1;
+    --muted: #bcc4b6;
+    --line: #314036;
+    --paper: #101612;
+    --panel: #141a16;
+    --accent: #78c5a7;
+    --accent-dark: #a9e3c7;
+    --amber: #e8a85f;
+    --soft: #1b241f;
+  }
+
+  body {
+    background:
+      linear-gradient(120deg, rgba(120, 197, 167, 0.08), transparent 34%),
+      linear-gradient(180deg, #101612 0%, #0d120f 100%);
+  }
+
+  .nav,
+  .site-footer,
+  .directory {
+    background: rgba(16, 22, 18, 0.92);
+  }
+
+  .secondary,
+  .instant-panel,
+  .scan-plane,
+  .url-row,
+  .strip {
+    background: rgba(20, 26, 22, 0.94);
+  }
+
+  .checklist {
+    background: #0f1411;
+  }
+
+  .final {
+    background:
+      linear-gradient(120deg, rgba(232, 168, 95, 0.12), transparent),
+      #111713;
+  }
+
+  .site-footer-links a,
+  .directory-links a,
+  .library-link a {
+    color: var(--accent);
+  }
+}
 </style>
   </head>
   <body>
+    <a class="skip-link" href="#content">Skip to content</a>
     <header class="nav" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="MerchantFix home">
+      <a class="brand" href="./" aria-label="MerchantFix home">
         <img src="assets/merchantfix-icon.png" alt="" />
         <span>MerchantFix</span>
       </a>
       <a class="nav-link" href="#instant-check">Start free check</a>
     </header>
 
-    <main id="top">
+    <main id="content">
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Free public-page check</p>
@@ -716,7 +887,7 @@ h2 {
               <ul class="result-list" id="resultGaps"></ul>
               <div class="result-actions">
                 <button class="secondary" id="copyPreviewButton" type="button">Copy preview</button>
-                <a class="primary" id="tallyDeepLink" href="https://tally.so/r/EkA01B?source=instant_check" target="_blank" rel="noreferrer">Submit full materials</a>
+                <a class="primary" id="tallyDeepLink" href="https://tally.so/r/EkA01B?source=instant_check&utm_source=merchantfix_site&utm_campaign=instant_free_check" target="_blank" rel="noopener noreferrer">Submit full materials</a>
               </div>
               <p class="microcopy">For screenshots, affected product lists, and a human-readable report, use the full intake form.</p>
             </section>
@@ -737,6 +908,7 @@ h2 {
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
             <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
             <a href="llms.txt">llms.txt</a>
           </div>
         </div>
@@ -815,6 +987,22 @@ h2 {
         <p class="library-link"><a href="errors/">Browse Merchant Center error library</a></p>
       </section>
     </main>
+    <footer class="site-footer" aria-label="Site footer">
+      <div class="site-footer-grid">
+        <p>
+          MerchantFix is an independent public-page evidence review. It is not Google, does not access private accounts,
+          does not submit appeals, and does not control platform decisions.
+        </p>
+        <nav class="site-footer-links" aria-label="Footer links">
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="contact.html">Contact</a>
+          <a href="errors/">Error library</a>
+          <a href="https://tally.so/r/EkA01B?source=footer&utm_source=merchantfix_site&utm_campaign=footer_intake" target="_blank" rel="noopener noreferrer">Full intake</a>
+        </nav>
+      </div>
+    </footer>
     <script>
 const form = document.getElementById("instantCheckForm");
 const resultPanel = document.getElementById("instantResult");
@@ -955,6 +1143,8 @@ function renderPreview(preview, data) {
 
   const params = new URLSearchParams({
     source: "instant_check",
+    utm_source: "merchantfix_site",
+    utm_campaign: "instant_free_check",
     email: data.email,
     store_url: data.storeUrl,
     product_url: data.productUrl

@@ -8,6 +8,12 @@ Turn MerchantFix from a Chrome Web Store-dependent launch into a passive intake 
 
 The founder should act as operator and reviewer, not as a daily outbound marketer.
 
+Public boundary:
+
+- Independent public-page evidence review.
+- Not Google and not a platform partner.
+- No account login, admin access, appeal submission, or promised platform decision.
+
 ## Public Entry
 
 Landing page:
@@ -20,6 +26,15 @@ Primary CTA:
 
 Use the same Tally form as the full-material backup intake. Do not create a second form until the first 10 qualified submissions prove the flow.
 
+If the local Chrome extension is unavailable or not released yet, continue manually:
+
+1. Open the Tally submission.
+2. Open the store URL and affected product URL in a normal browser tab.
+3. Check the six visible signals manually: contact, shipping, returns/refund, price/currency, availability, business identity.
+4. Use the reply templates below.
+
+The extension is a speed tool, not a launch blocker.
+
 ## Tally Form Fields
 
 Recommended fields:
@@ -30,8 +45,10 @@ Recommended fields:
 - Merchant Center issue text or screenshot link
 - Merchant Center issue screenshot upload
 - Affected product URLs
+- Privacy policy link: `https://soup-rolls.github.io/merchantfix-free-check/privacy.html`
+- Terms link: `https://soup-rolls.github.io/merchantfix-free-check/terms.html`
 - Consent checkbox:
-  `I understand this is an independent public-page evidence review, not Google, not an appeal service, and does not control platform decisions.`
+  `I understand this is an independent public-page evidence review, not Google, not an appeal service, and does not control platform decisions. I will not upload passwords, cookies, payment data, or customer data.`
 
 ## Daily Operator Loop
 
@@ -50,7 +67,15 @@ Target time:
 - Free triage: 5-8 minutes per qualified submission.
 - Paid Launch Lite Snapshot: 35-60 minutes per order.
 
+Reply SLA:
+
+- Qualified free triage: first reply target within 1 business day.
+- Paid Launch Lite Snapshot: delivery target within 48h after qualified paid intake.
+- If the case is not qualified, reply with the no-clear-issue template instead of selling paid review.
+
 The public instant preview runs locally in the browser and does not submit data by itself. Tally stores full-material submissions only when the user clicks through and submits the form. The extension stores the active case locally in Chrome only. It does not upload Tally data, login to accounts, send emails, or submit appeals.
+
+Send replies from the same public contact mailbox listed on the site. Do not switch between random personal inboxes.
 
 ## Free Triage Response
 
@@ -115,6 +140,41 @@ Do not accept:
 - Payment information
 - Requests to submit appeals
 - Requests to promise platform outcomes
+
+## Refund and Complaint Path
+
+Use this policy for payment links and reply templates:
+
+- If the user pays but the case is rejected before work starts, refund the order.
+- If the user cancels before the evidence brief draft has started, refund the order.
+- If the brief has already been delivered, review complaints case by case. Offer clarification first; refund only when the delivered brief clearly misses the paid scope.
+- Acknowledge refund or complaint requests within 2 business days.
+- Never promise that a refund depends on platform outcome.
+
+## Data Retention
+
+Keep the data footprint short:
+
+- The instant preview input stays in the browser unless the user submits the Tally form.
+- Tally submissions and working copies are kept only for review, delivery, billing, and dispute handling.
+- Delete or anonymize non-essential working copies within 90 days after delivery.
+- Delete rejected spam or unsafe submissions immediately.
+- If a user asks for deletion, remove non-essential copies where legally possible and confirm by email.
+
+Screenshot handling:
+
+- Accept PNG, JPG, or PDF screenshots only.
+- Ask users to redact customer names, order IDs, payment data, cookies, and account tokens.
+- Do not store or forward screenshots that include passwords, 2FA codes, customer exports, or payment details.
+
+## Tracking and Monitoring
+
+For the first paid-link launch:
+
+- Use Tally query parameters (`source`, `utm_source`, `utm_campaign`) as the minimum conversion tracking layer.
+- Record daily counts manually: page visits if available, free previews, Tally submissions, qualified cases, paid orders, refunds.
+- Add external uptime monitoring after the first paid order. Monitor `https://soup-rolls.github.io/merchantfix-free-check/` and `https://soup-rolls.github.io/merchantfix-free-check/health.txt`.
+- Do not add invasive analytics before the privacy policy and consent language are updated.
 
 ## Stop-Loss Rule
 

@@ -9,6 +9,7 @@ MerchantFix is an independent public-page evidence review for stores preparing M
 - https://soup-rolls.github.io/merchantfix-free-check/about.html
 - https://soup-rolls.github.io/merchantfix-free-check/contact.html
 - https://soup-rolls.github.io/merchantfix-free-check/privacy.html
+- https://soup-rolls.github.io/merchantfix-free-check/terms.html
 
 ## Category pages
 - https://soup-rolls.github.io/merchantfix-free-check/errors/categories/product-identifiers.html

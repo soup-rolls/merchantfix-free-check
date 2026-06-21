@@ -181,6 +181,7 @@ const trustPages = [
       ["Run free preview", "./#instant-check"],
       ["Browse error library", "errors/"],
       ["Privacy", "privacy.html"],
+      ["Terms", "terms.html"],
       ["Contact", "contact.html"]
     ]
   },
@@ -191,7 +192,7 @@ const trustPages = [
     canonical: `${siteUrl}/privacy.html`,
     eyebrow: "Privacy",
     h1: "Public-page only by design.",
-    lede: "The public site runs a local preview in the browser. Full materials only enter the Tally intake after the user chooses to submit them.",
+    lede: "The public site runs a local preview in the browser. Full materials only enter the Tally intake after the user chooses to submit them, and the operator keeps retention short.",
     sections: [
       {
         title: "Collected on the public site",
@@ -216,11 +217,20 @@ const trustPages = [
           "Qualified cases are then reviewed manually.",
           "The operator handles only the minimum material needed to produce the evidence brief."
         ]
+      },
+      {
+        title: "Retention and deletion",
+        items: [
+          "Qualified intake materials are kept only as long as needed to complete the brief and resolve any billing or dispute questions.",
+          "Working copies are deleted or anonymized within 90 days after delivery unless a longer retention period is required by law or a live dispute.",
+          "Deletion requests are handled in writing through the contact page, and non-essential copies are removed where legally possible."
+        ]
       }
     ],
     links: [
       ["Contact", "contact.html"],
       ["About", "about.html"],
+      ["Terms", "terms.html"],
       ["Full error library", "errors/"],
       ["Tally intake", "https://tally.so/r/EkA01B"]
     ]
@@ -255,7 +265,49 @@ const trustPages = [
     links: [
       ["About", "about.html"],
       ["Privacy", "privacy.html"],
+      ["Terms", "terms.html"],
       ["Error library", "errors/"],
+      ["Home", "./"]
+    ]
+  },
+  {
+    file: "terms.html",
+    title: "Terms of Service - MerchantFix",
+    description: "MerchantFix terms for the public-page evidence review and Launch Lite Snapshot service.",
+    canonical: `${siteUrl}/terms.html`,
+    eyebrow: "Terms",
+    h1: "Simple terms for an independent review.",
+    lede: "MerchantFix sells analysis time and structured evidence review. It does not sell account access, appeal submission, or promised platform outcomes.",
+    sections: [
+      {
+        title: "Scope of service",
+        items: [
+          "Launch Lite Snapshot includes a short human review of public-page evidence and the context the user submits.",
+          "The service is limited to visible public pages and uploaded context.",
+          "It is not legal advice and does not act as Google or any platform operator."
+        ]
+      },
+      {
+        title: "Refunds",
+        items: [
+          "If a paid order is cancelled before the draft review starts, the operator will refund the order.",
+          "If the brief has already been delivered, refund requests are reviewed case by case based on service quality and scope mismatch.",
+          "Payment disputes should be raised through the contact page first."
+        ]
+      },
+      {
+        title: "Response and support",
+        items: [
+          "Qualified free-triage replies target 1 business day.",
+          "Launch Lite Snapshot delivery targets 48 hours after qualified intake.",
+          "The operator may refuse requests that contain passwords, cookies, 2FA codes, or requests to submit appeals."
+        ]
+      }
+    ],
+    links: [
+      ["Privacy", "privacy.html"],
+      ["About", "about.html"],
+      ["Contact", "contact.html"],
       ["Home", "./"]
     ]
   }
@@ -304,7 +356,7 @@ function shell({ title, description, canonical, body, jsonLd, assetBase = "asset
     <link rel="canonical" href="${canonical}" />
     <link rel="icon" href="${assetBase}merchantfix-icon.png" />
     <style>
-      :root{color-scheme:light;--ink:#151613;--muted:#62665d;--line:#dfe3d8;--paper:#f8f7f1;--accent:#27735e;--accent-dark:#174f41;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      :root{color-scheme:light dark;--ink:#151613;--muted:#52574d;--line:#dfe3d8;--paper:#f8f7f1;--accent:#27735e;--accent-dark:#174f41;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
       *{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#fbfaf6 0%,var(--paper) 100%);color:var(--ink)} a{color:inherit}
       .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px clamp(18px,4vw,56px);border-bottom:1px solid rgba(21,22,19,.08);background:rgba(248,247,241,.9);position:sticky;top:0;z-index:10;backdrop-filter:blur(18px)}
       .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800}.brand img{width:30px;height:30px}.nav a:last-child{font-size:14px;font-weight:800;color:var(--accent-dark)}
@@ -315,7 +367,7 @@ function shell({ title, description, canonical, body, jsonLd, assetBase = "asset
       ul{margin:18px 0 0;padding:0;list-style:none}li{padding:13px 0;border-bottom:1px solid var(--line);color:var(--muted);line-height:1.45}.link-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
       .primary,.secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:6px;text-decoration:none;font-weight:900}.primary{background:var(--accent);color:white}.secondary{border:1px solid var(--line);background:white;color:var(--accent-dark)}
       .note{margin-top:16px;color:var(--muted);font-size:13px;line-height:1.45}.index-list a{display:flex;justify-content:space-between;gap:16px;text-decoration:none}.index-list strong{color:var(--ink)}.index-list span{color:var(--muted)}
-      @media(max-width:860px){.hero{grid-template-columns:1fr}.nav{align-items:flex-start}.index-list a{display:block}.primary,.secondary{width:100%}}
+      @media(max-width:860px){.hero{grid-template-columns:1fr}.nav{align-items:flex-start}.index-list a{display:block}.primary,.secondary{width:100%}}@media(prefers-color-scheme:dark){:root{color-scheme:dark;--ink:#f4f6f1;--muted:#bcc4b6;--line:#314036;--paper:#101612;--accent:#78c5a7;--accent-dark:#a9e3c7}body{background:linear-gradient(180deg,#101612 0%,#0d120f 100%)}.nav{background:rgba(16,22,18,.92)}.secondary,pre{background:#141a16}.primary{color:#0d120f}}
     </style>
     <script type="application/ld+json">${JSON.stringify(jsonLd, null, 2)}</script>
   </head>
@@ -333,6 +385,9 @@ function renderTrustPage(page) {
   const sections = page.sections
     .map(section => `<section class="section"><p class="eyebrow">${escapeHtml(section.title)}</p><ul>${section.items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>`)
     .join("");
+  const linkAttrs = href => href.startsWith("http")
+    ? ' target="_blank" rel="noopener noreferrer"'
+    : "";
   const body = `<main>
       <section class="hero">
         <div>
@@ -345,7 +400,7 @@ function renderTrustPage(page) {
           <h2>Keep the boundary visible.</h2>
           <p class="lede">Public preview, full intake, and support links live in one place.</p>
           <div class="link-grid">
-            ${page.links.map(([label, href]) => `<a class="secondary" href="${href}">${escapeHtml(label)}</a>`).join("")}
+            ${page.links.map(([label, href]) => `<a class="secondary" href="${href}"${linkAttrs(href)}>${escapeHtml(label)}</a>`).join("")}
           </div>
         </aside>
       </section>
@@ -362,6 +417,7 @@ function renderTrustPage(page) {
 }
 
 function renderCategoryPage(page) {
+  const externalAttrs = ' target="_blank" rel="noopener noreferrer"';
   const body = `<main>
       <section class="hero">
         <div>
@@ -392,7 +448,7 @@ function renderCategoryPage(page) {
         <p class="lede">If your case already has an issue screenshot and affected product URL, move to the full-material intake for a human-read evidence brief.</p>
         <div class="link-grid">
           <a class="primary" href="../../#instant-check">Run evidence preview</a>
-          <a class="secondary" href="https://tally.so/r/EkA01B?source=${page.slug}">Submit full materials</a>
+          <a class="secondary" href="https://tally.so/r/EkA01B?source=${page.slug}&utm_source=merchantfix_category&utm_campaign=category_intake"${externalAttrs}>Submit full materials</a>
         </div>
       </section>
     </main>`;
@@ -434,6 +490,15 @@ function renderCategoryIndex(page) {
         <p class="eyebrow">Category pages</p>
         <ul class="index-list">${page.links.map(([label, href]) => `<li><a href="${href}"><strong>${escapeHtml(label)}</strong><span>Category page</span></a></li>`).join("")}</ul>
       </section>
+      <section class="section">
+        <p class="eyebrow">Trust docs</p>
+        <ul class="index-list">
+          <li><a href="../../about.html"><strong>About</strong><span>Trust doc</span></a></li>
+          <li><a href="../../privacy.html"><strong>Privacy</strong><span>Trust doc</span></a></li>
+          <li><a href="../../terms.html"><strong>Terms</strong><span>Trust doc</span></a></li>
+          <li><a href="../../contact.html"><strong>Contact</strong><span>Trust doc</span></a></li>
+        </ul>
+      </section>
     </main>`;
   const jsonLd = {
     "@context": "https://schema.org",
@@ -451,7 +516,7 @@ function renderCategoryIndex(page) {
 }
 
 function llmsTxt() {
-  return `# MerchantFix\n\nMerchantFix is an independent public-page evidence review for stores preparing Merchant Center materials.\n\n## Core pages\n- ${siteUrl}/\n- ${siteUrl}/errors/\n- ${siteUrl}/errors/categories/\n- ${siteUrl}/about.html\n- ${siteUrl}/contact.html\n- ${siteUrl}/privacy.html\n\n## Category pages\n- ${siteUrl}/errors/categories/product-identifiers.html\n- ${siteUrl}/errors/categories/content-and-landing.html\n- ${siteUrl}/errors/categories/price-and-availability.html\n- ${siteUrl}/errors/categories/shipping-and-tax.html\n- ${siteUrl}/errors/categories/variants-and-attributes.html\n- ${siteUrl}/errors/categories/trust-and-policy.html\n\n## Boundaries\n- Free preview runs locally in the browser.\n- Full materials enter Tally only when the user chooses to submit them.\n- No account login.\n- No appeal submission.\n- No promised platform decision.\n\n## Reference pages\n- ${siteUrl}/errors/missing-value-gtin.html\n- ${siteUrl}/errors/price-mismatch.html\n- ${siteUrl}/errors/shipping-cost-mismatch.html\n- ${siteUrl}/errors/misrepresentation.html\n`;
+  return `# MerchantFix\n\nMerchantFix is an independent public-page evidence review for stores preparing Merchant Center materials.\n\n## Core pages\n- ${siteUrl}/\n- ${siteUrl}/errors/\n- ${siteUrl}/errors/categories/\n- ${siteUrl}/about.html\n- ${siteUrl}/contact.html\n- ${siteUrl}/privacy.html\n- ${siteUrl}/terms.html\n\n## Category pages\n- ${siteUrl}/errors/categories/product-identifiers.html\n- ${siteUrl}/errors/categories/content-and-landing.html\n- ${siteUrl}/errors/categories/price-and-availability.html\n- ${siteUrl}/errors/categories/shipping-and-tax.html\n- ${siteUrl}/errors/categories/variants-and-attributes.html\n- ${siteUrl}/errors/categories/trust-and-policy.html\n\n## Boundaries\n- Free preview runs locally in the browser.\n- Full materials enter Tally only when the user chooses to submit them.\n- No account login.\n- No appeal submission.\n- No promised platform decision.\n\n## Reference pages\n- ${siteUrl}/errors/missing-value-gtin.html\n- ${siteUrl}/errors/price-mismatch.html\n- ${siteUrl}/errors/shipping-cost-mismatch.html\n- ${siteUrl}/errors/misrepresentation.html\n`;
 }
 
 function sitemapUrls() {
@@ -461,6 +526,7 @@ function sitemapUrls() {
     `${siteUrl}/about.html`,
     `${siteUrl}/contact.html`,
     `${siteUrl}/privacy.html`,
+    `${siteUrl}/terms.html`,
     `${siteUrl}/errors/categories/`,
     ...categoryPages.map(page => `${siteUrl}/errors/categories/${page.slug}.html`)
   ].forEach(url => urls.add(url));

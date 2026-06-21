@@ -29,16 +29,31 @@ Required files:
 
 - `index.html`
 - `assets/merchantfix-icon.png`
+- `assets/merchantfix-og.png`
+- `favicon.ico`
+- `privacy.html`
+- `terms.html`
+- `contact.html`
+- `404.html`
+- `health.txt`
 
-`index.html` now includes the critical CSS inline. `styles.css` is kept locally as an editable source backup, but the live page no longer depends on a separate CSS request.
+`index.html` now includes the landing page CSS inline as the single source of truth. The duplicate `styles.css` file was removed to avoid split maintenance.
 
 ## After Deploy
 
 Replace or reuse these links:
 
-- Header CTA: `https://tally.so/r/EkA01B?source=free_check_page`
-- Hero CTA: `https://tally.so/r/EkA01B?source=free_check_page`
-- Bottom CTA: `https://tally.so/r/EkA01B?source=free_check_page_bottom`
+- Primary intake: `https://tally.so/r/EkA01B?source=instant_check`
+- Footer intake: `https://tally.so/r/EkA01B?source=footer`
+- Category intake: `https://tally.so/r/EkA01B?source=<category-slug>`
+
+Use a custom domain before paid traffic or larger partner outreach. GitHub Pages is acceptable for validation, but a domain such as `merchantfix.ai` or `merchantfix.co` will reduce payment-page trust friction.
+
+Set a free uptime monitor after the first paid order:
+
+- Home: `https://soup-rolls.github.io/merchantfix-free-check/`
+- Health: `https://soup-rolls.github.io/merchantfix-free-check/health.txt`
+- Sitemap: `https://soup-rolls.github.io/merchantfix-free-check/sitemap.xml`
 
 ## Suggested Public URL Slug
 
