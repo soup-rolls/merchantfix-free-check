@@ -119,7 +119,7 @@ I understand this is an independent public-page evidence review, not Google, not
 ```text
 Thanks. Your public-page evidence check request was received.
 
-If the submitted URL has clear public-page evidence gaps, you may receive an option to request a $49 Evidence Snapshot.
+If the submitted URL has clear public-page evidence gaps, you may receive an option to request a $29 Launch Lite Snapshot.
 ```
 
 ## Hidden Field / Source Tracking
