@@ -181,6 +181,133 @@ h2 {
   perspective: 1200px;
 }
 
+.instant-panel {
+  width: min(100%, 540px);
+  padding: 26px;
+  border: 1px solid rgba(21, 22, 19, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 28px 90px rgba(23, 79, 65, 0.15);
+  animation: lift 900ms ease both;
+}
+
+.instant-panel h2 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.08;
+}
+
+.instant-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.check-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.check-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.check-form input,
+.check-form textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbfcf8;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.check-form textarea {
+  min-height: 94px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.microcopy {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.instant-result {
+  display: none;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.instant-result.is-visible {
+  display: block;
+}
+
+.result-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.score-ring {
+  display: grid;
+  place-items: center;
+  width: 82px;
+  height: 82px;
+  border: 7px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.result-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.result-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.result-actions .primary,
+.result-actions .secondary {
+  min-height: 46px;
+  padding-inline: 16px;
+  font-size: 13px;
+}
+
 .scan-plane {
   position: relative;
   width: min(100%, 520px);
@@ -442,6 +569,14 @@ h2 {
     transform: none;
   }
 
+  .instant-panel {
+    width: min(92vw, 520px);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
   .strip {
     grid-template-columns: 1fr;
   }
@@ -469,7 +604,7 @@ h2 {
         <img src="assets/merchantfix-icon.png" alt="" />
         <span>MerchantFix</span>
       </a>
-      <a class="nav-link" href="https://tally.so/r/EkA01B?source=free_check_page">Start free check</a>
+      <a class="nav-link" href="#instant-check">Start free check</a>
     </header>
 
     <main id="top">
@@ -478,61 +613,89 @@ h2 {
           <p class="eyebrow">Free public-page check</p>
           <h1>Find store-page evidence gaps before a Merchant Center review.</h1>
           <p class="lede">
-            Submit a store URL and product page. We check visible public signals only: policies,
-            price, availability, contact, and business identity.
+            Submit a store URL, product URL, and issue context. Get an instant evidence-readiness preview before sending full materials.
           </p>
           <div class="actions">
-            <a class="primary" href="https://tally.so/r/EkA01B?source=free_check_page">Submit URL for free check</a>
+            <a class="primary" href="#instant-check">Run instant free check</a>
             <a class="secondary" href="#how-it-works">See what gets checked</a>
           </div>
           <p class="boundary">No account login. No admin access. No appeal submission. No promised platform decision.</p>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="scan-plane">
-            <div class="scan-head">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="url-row">store.example/products/desk-lamp</div>
-            <div class="scan-list">
-              <div><strong>Contact</strong><span class="ok">found</span></div>
-              <div><strong>Shipping</strong><span class="warn">weak</span></div>
-              <div><strong>Returns</strong><span class="ok">found</span></div>
-              <div><strong>Price</strong><span class="ok">found</span></div>
-              <div><strong>Availability</strong><span class="warn">check</span></div>
-            </div>
-            <div class="scan-line"></div>
-          </div>
+        <div class="hero-visual" id="instant-check">
+          <section class="instant-panel" aria-label="Instant free check">
+            <p class="eyebrow">Instant free check</p>
+            <h2>Get a first-pass evidence preview.</h2>
+            <p>Client-side preview based on your submitted URLs and issue text. Full evidence review still uses public pages and your uploaded context.</p>
+
+            <form class="check-form" id="instantCheckForm">
+              <div class="form-row">
+                <label>
+                  Email
+                  <input id="checkEmail" type="email" placeholder="seller@example.com" required />
+                </label>
+                <label>
+                  Store URL
+                  <input id="checkStoreUrl" type="url" placeholder="https://yourstore.com" required />
+                </label>
+              </div>
+              <label>
+                Product URL
+                <input id="checkProductUrl" type="url" placeholder="https://yourstore.com/products/example" required />
+              </label>
+              <label>
+                Merchant Center issue text
+                <textarea id="checkIssueText" placeholder="Paste the visible issue text or describe the affected listing. Do not include passwords, cookies, payment data, or customer data." required></textarea>
+              </label>
+              <button class="primary" type="submit">Generate free preview</button>
+              <span class="microcopy">This preview does not crawl private accounts or submit appeals. It helps decide whether a $29 Launch Lite Snapshot is worth requesting.</span>
+            </form>
+
+            <section class="instant-result" id="instantResult" aria-live="polite">
+              <div class="result-head">
+                <div>
+                  <p class="eyebrow">Preview result</p>
+                  <h2 id="resultTitle">Evidence readiness</h2>
+                </div>
+                <div class="score-ring"><span id="resultScore">--</span></div>
+              </div>
+              <p id="resultSummary"></p>
+              <ul class="result-list" id="resultGaps"></ul>
+              <div class="result-actions">
+                <button class="secondary" id="copyPreviewButton" type="button">Copy preview</button>
+                <a class="primary" id="tallyDeepLink" href="https://tally.so/r/EkA01B?source=instant_check" target="_blank" rel="noreferrer">Submit full materials</a>
+              </div>
+              <p class="microcopy">For screenshots, affected product lists, and a human-readable report, use the full intake form.</p>
+            </section>
+          </section>
         </div>
       </section>
 
       <section class="strip" aria-label="Service boundary">
-        <span>Public pages only</span>
-        <span>Active evidence scan</span>
+        <span>Instant preview first</span>
+        <span>Full materials via Tally</span>
         <span>$29 launch Snapshot when needed</span>
       </section>
 
       <section class="workflow" id="how-it-works">
         <div>
           <p class="eyebrow">Operator-light workflow</p>
-          <h2>One form in, one evidence draft out.</h2>
+          <h2>Instant preview, then full evidence only when needed.</h2>
         </div>
         <ol class="steps">
           <li>
             <span>01</span>
-            <strong>Submit the public URLs</strong>
-            <p>Email, store URL, product URL, and Merchant Center issue context.</p>
+            <strong>Generate the free preview</strong>
+            <p>Email, store URL, product URL, and Merchant Center issue context produce an immediate evidence-readiness result.</p>
           </li>
           <li>
             <span>02</span>
-            <strong>Run a visible-page scan</strong>
-            <p>The check looks for policy, contact, price, availability, and trust signals.</p>
+            <strong>Submit full materials if risk is clear</strong>
+            <p>Tally remains the backup intake for screenshots, affected product lists, and consent.</p>
           </li>
           <li>
             <span>03</span>
-            <strong>Receive the next step</strong>
-            <p>If gaps are obvious, request a $29 Launch Lite Snapshot for a page-by-page brief.</p>
+            <strong>Request the Launch Lite Snapshot</strong>
+            <p>If gaps are obvious, request a $29 Launch Lite Snapshot for a 1-2 page evidence brief.</p>
           </li>
         </ol>
       </section>
@@ -540,15 +703,15 @@ h2 {
       <section class="checklist">
         <div>
           <p class="eyebrow">Signals checked</p>
-          <h2>The free check stays narrow on purpose.</h2>
+          <h2>The free preview stays narrow on purpose.</h2>
         </div>
         <ul>
-          <li>Contact or support information</li>
-          <li>Shipping policy visibility</li>
-          <li>Returns or refund policy visibility</li>
-          <li>Visible price and currency consistency</li>
-          <li>Availability or purchase CTA signal</li>
-          <li>Business identity and trust signals</li>
+          <li>Store URL and product URL consistency</li>
+          <li>Issue text category and evidence completeness</li>
+          <li>Likely price, shipping, availability, or trust gap</li>
+          <li>Whether screenshots or exact issue text are missing</li>
+          <li>Whether the case is qualified for a Lite Snapshot</li>
+          <li>Boundary check: public-page review only</li>
         </ul>
       </section>
 
@@ -569,11 +732,201 @@ h2 {
       </section>
 
       <section class="final">
-        <h2>Start with the free public-page check.</h2>
-        <a class="primary" href="https://tally.so/r/EkA01B?source=free_check_page_bottom">Submit URL</a>
+        <h2>Start with the instant free preview.</h2>
+        <a class="primary" href="#instant-check">Run instant check</a>
         <p>Independent evidence review. Not Google. Does not control platform decisions.</p>
       </section>
     </main>
+    <script>
+const form = document.getElementById("instantCheckForm");
+const resultPanel = document.getElementById("instantResult");
+const resultTitle = document.getElementById("resultTitle");
+const resultScore = document.getElementById("resultScore");
+const resultSummary = document.getElementById("resultSummary");
+const resultGaps = document.getElementById("resultGaps");
+const copyPreviewButton = document.getElementById("copyPreviewButton");
+const tallyDeepLink = document.getElementById("tallyDeepLink");
+
+let latestPreview = "";
+
+const issuePatterns = [
+  {
+    label: "Price or currency mismatch",
+    terms: ["price", "currency", "mismatch", "sale price", "shipping cost", "tax"],
+    gap: "Verify product page price, sale price, currency, checkout price, and Merchant Center feed values."
+  },
+  {
+    label: "Shipping policy or delivery mismatch",
+    terms: ["shipping", "delivery", "freight", "carrier", "shipping cost", "delivery time"],
+    gap: "Prepare visible shipping policy evidence, delivery regions, delivery timing, and any exceptions."
+  },
+  {
+    label: "Availability or purchase state mismatch",
+    terms: ["availability", "out of stock", "in stock", "sold out", "preorder", "backorder"],
+    gap: "Check product page availability text, add-to-cart state, feed availability, and variant-level stock."
+  },
+  {
+    label: "Misrepresentation or trust evidence gap",
+    terms: ["misrepresentation", "trust", "business", "contact", "refund", "return", "policy", "suspicious"],
+    gap: "Collect public contact, refund, returns, shipping, business identity, and support visibility evidence."
+  },
+  {
+    label: "Product identifier evidence gap",
+    terms: ["gtin", "mpn", "brand", "identifier", "barcode"],
+    gap: "Prepare product identifier evidence for brand, GTIN, MPN, and affected variants."
+  }
+];
+
+function cleanUrl(value) {
+  try {
+    return new URL(value.trim());
+  } catch {
+    return null;
+  }
+}
+
+function sameDomain(storeUrl, productUrl) {
+  if (!storeUrl || !productUrl) return false;
+  return productUrl.hostname === storeUrl.hostname || productUrl.hostname.endsWith("." + storeUrl.hostname);
+}
+
+function hasProductPath(url) {
+  return /\/products?\/|\/collections?\/|\/item\/|\/p\//i.test(url.pathname);
+}
+
+function detectIssueTypes(text) {
+  const lower = text.toLowerCase();
+  return issuePatterns.filter(pattern => pattern.terms.some(term => lower.includes(term)));
+}
+
+function buildPreview(data) {
+  const storeUrl = cleanUrl(data.storeUrl);
+  const productUrl = cleanUrl(data.productUrl);
+  const issueText = data.issueText.trim();
+  const detected = detectIssueTypes(issueText);
+  const gaps = [];
+  let score = 18;
+
+  if (!storeUrl) {
+    score += 20;
+    gaps.push("Store URL is not a valid public URL.");
+  }
+
+  if (!productUrl) {
+    score += 24;
+    gaps.push("Product URL is not a valid public product URL.");
+  }
+
+  if (storeUrl && productUrl && !sameDomain(storeUrl, productUrl)) {
+    score += 18;
+    gaps.push("Store URL and product URL use different domains. This needs corrected evidence or a clear explanation.");
+  }
+
+  if (productUrl && !hasProductPath(productUrl)) {
+    score += 10;
+    gaps.push("Product URL does not look like a normal product page. Use the exact affected public product URL if possible.");
+  }
+
+  if (issueText.length < 60) {
+    score += 18;
+    gaps.push("Issue context is too short. Paste the exact visible Merchant Center issue text or describe the affected listing.");
+  }
+
+  if (!/screenshot|screen shot|merchant center|gmc|diagnostic|policy|review/i.test(issueText)) {
+    score += 10;
+    gaps.push("No screenshot or exact Merchant Center context is mentioned. Add the visible issue text or screenshot in the full intake.");
+  }
+
+  if (!detected.length) {
+    score += 12;
+    gaps.push("Issue type is unclear from the text. A human review may need the exact screenshot or policy message.");
+  } else {
+    detected.slice(0, 3).forEach(item => gaps.push(`${item.label}: ${item.gap}`));
+    score += Math.min(22, detected.length * 8);
+  }
+
+  const hasEnoughContext = issueText.length >= 60 && /screenshot|screen shot|merchant center|gmc|diagnostic|policy|review/i.test(issueText);
+  const qualified = hasEnoughContext && (score >= 45 || detected.length > 0);
+  if (qualified) {
+    score = Math.max(55, score);
+  } else if (!hasEnoughContext) {
+    score = Math.min(score, 44);
+  }
+  score = Math.max(12, Math.min(96, score));
+  const title = qualified
+    ? (score >= 70 ? "High evidence risk" : "Review recommended")
+    : "More context needed";
+  const summary = qualified
+    ? "This looks qualified for a deeper public-page evidence review if you can provide screenshots or exact issue text."
+    : "The submitted context is not strong enough for paid review yet. Add exact issue text, screenshot context, or affected product evidence first.";
+
+  return { score, title, summary, gaps: gaps.slice(0, 5), qualified };
+}
+
+function renderPreview(preview, data) {
+  resultTitle.textContent = preview.title;
+  resultScore.textContent = String(preview.score);
+  resultSummary.textContent = preview.summary;
+  resultGaps.innerHTML = "";
+
+  preview.gaps.forEach(gap => {
+    const li = document.createElement("li");
+    li.textContent = gap;
+    resultGaps.appendChild(li);
+  });
+
+  const params = new URLSearchParams({
+    source: "instant_check",
+    email: data.email,
+    store_url: data.storeUrl,
+    product_url: data.productUrl
+  });
+  tallyDeepLink.href = `https://tally.so/r/EkA01B?${params.toString()}`;
+
+  latestPreview = [
+    "MerchantFix Instant Free Check Preview",
+    "",
+    `Email: ${data.email}`,
+    `Store URL: ${data.storeUrl}`,
+    `Product URL: ${data.productUrl}`,
+    `Risk score: ${preview.score}/100`,
+    `Result: ${preview.title}`,
+    "",
+    "Top evidence gaps:",
+    ...preview.gaps.map(gap => `- ${gap}`),
+    "",
+    "Next step:",
+    preview.qualified
+      ? "Submit full materials for the $29 Launch Lite Snapshot if you want a 1-2 page evidence brief."
+      : "Add exact issue text or screenshot context before requesting paid review.",
+    "",
+    "Boundary: independent public-page evidence review only; not Google; no account login; no appeal submission; no promised platform decision."
+  ].join("\n");
+
+  resultPanel.classList.add("is-visible");
+  resultPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  const data = {
+    email: document.getElementById("checkEmail").value.trim(),
+    storeUrl: document.getElementById("checkStoreUrl").value.trim(),
+    productUrl: document.getElementById("checkProductUrl").value.trim(),
+    issueText: document.getElementById("checkIssueText").value
+  };
+  renderPreview(buildPreview(data), data);
+});
+
+copyPreviewButton.addEventListener("click", async () => {
+  if (!latestPreview) return;
+  await navigator.clipboard.writeText(latestPreview);
+  copyPreviewButton.textContent = "Copied";
+  setTimeout(() => {
+    copyPreviewButton.textContent = "Copy preview";
+  }, 1400);
+});
+</script>
   </body>
 </html>
 
