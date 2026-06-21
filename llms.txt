@@ -1,0 +1,32 @@
+# MerchantFix
+
+MerchantFix is an independent public-page evidence review for stores preparing Merchant Center materials.
+
+## Core pages
+- https://soup-rolls.github.io/merchantfix-free-check/
+- https://soup-rolls.github.io/merchantfix-free-check/errors/
+- https://soup-rolls.github.io/merchantfix-free-check/errors/categories/
+- https://soup-rolls.github.io/merchantfix-free-check/about.html
+- https://soup-rolls.github.io/merchantfix-free-check/contact.html
+- https://soup-rolls.github.io/merchantfix-free-check/privacy.html
+
+## Category pages
+- https://soup-rolls.github.io/merchantfix-free-check/errors/categories/product-identifiers.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/categories/content-and-landing.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/categories/price-and-availability.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/categories/shipping-and-tax.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/categories/variants-and-attributes.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/categories/trust-and-policy.html
+
+## Boundaries
+- Free preview runs locally in the browser.
+- Full materials enter Tally only when the user chooses to submit them.
+- No account login.
+- No appeal submission.
+- No promised platform decision.
+
+## Reference pages
+- https://soup-rolls.github.io/merchantfix-free-check/errors/missing-value-gtin.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/price-mismatch.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/shipping-cost-mismatch.html
+- https://soup-rolls.github.io/merchantfix-free-check/errors/misrepresentation.html

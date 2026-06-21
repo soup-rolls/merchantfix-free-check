@@ -408,6 +408,34 @@ h2 {
   border-right: 0;
 }
 
+.directory {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 34px clamp(20px, 6vw, 88px);
+  border-bottom: 1px solid var(--line);
+  background: #fffef9;
+}
+
+.directory-block {
+  min-width: 0;
+}
+
+.directory-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 12px;
+}
+
+.directory-links a {
+  color: var(--accent-dark);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
 .workflow,
 .checklist,
 .snapshot,
@@ -596,6 +624,10 @@ h2 {
     border-bottom: 1px solid var(--line);
   }
 
+  .directory {
+    grid-template-columns: 1fr;
+  }
+
   .actions {
     flex-direction: column;
   }
@@ -684,6 +716,29 @@ h2 {
         <span>Instant preview first</span>
         <span>Full materials via Tally</span>
         <span>$29 launch Snapshot when needed</span>
+      </section>
+
+      <section class="directory" aria-label="Reference pages">
+        <div class="directory-block">
+          <p class="eyebrow">Trust docs</p>
+          <div class="directory-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="llms.txt">llms.txt</a>
+          </div>
+        </div>
+        <div class="directory-block">
+          <p class="eyebrow">Category pages</p>
+          <div class="directory-links">
+            <a href="errors/categories/product-identifiers.html">Product identifiers</a>
+            <a href="errors/categories/content-and-landing.html">Content and landing</a>
+            <a href="errors/categories/price-and-availability.html">Price and availability</a>
+            <a href="errors/categories/shipping-and-tax.html">Shipping and tax</a>
+            <a href="errors/categories/variants-and-attributes.html">Variants and attributes</a>
+            <a href="errors/categories/trust-and-policy.html">Trust and policy</a>
+          </div>
+        </div>
       </section>
 
       <section class="workflow" id="how-it-works">
