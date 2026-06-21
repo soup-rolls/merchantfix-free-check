@@ -358,7 +358,7 @@ function renderTrustPage(page) {
     "description": page.description,
     "url": page.canonical
   };
-  return shell({ title: page.title, description: page.description, canonical: page.canonical, body, jsonLd, assetBase: "../../assets/", homeHref: "../../", previewHref: "../../#instant-check" });
+  return shell({ title: page.title, description: page.description, canonical: page.canonical, body, jsonLd, assetBase: "assets/", homeHref: "./", previewHref: "./#instant-check" });
 }
 
 function renderCategoryPage(page) {
