@@ -48,6 +48,6 @@ Replace or reuse these links:
 
 This page is not a heavy marketing campaign. It is a passive intake surface:
 
-`visitor -> URL submission -> free triage -> optional $49 Evidence Snapshot`
+`visitor -> URL submission -> free triage -> optional $29 Launch Lite Snapshot`
 
 Do not add blog, dashboard, pricing table, login, or automation features before the first paid Snapshot order.
