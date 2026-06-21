@@ -4,7 +4,7 @@
 
 Turn MerchantFix from a Chrome Web Store-dependent launch into a passive intake funnel:
 
-`Free public-page check -> qualified issue -> $49 Evidence Snapshot`
+`Free public-page check -> qualified issue -> $29 Launch Lite Snapshot`
 
 The founder should act as operator and reviewer, not as a daily outbound marketer.
 
@@ -35,19 +35,21 @@ Recommended fields:
 
 ## Daily Operator Loop
 
-Run once per day, not all day:
+Run once per day, not all day. Use the local Chrome extension as the intake operator tool:
 
-1. Open Tally inbox.
-2. Ignore submissions without a real store URL or issue context.
-3. Open the public store/product URL.
-4. Run MerchantFix Page Evidence Checker locally.
-5. Copy the Evidence Snapshot draft.
-6. Send one of the response templates below.
+1. Open Tally inbox and open one submission detail page.
+2. Click the extension button `Capture Tally submission`.
+3. Click `Open product URL`.
+4. On the product page, click `Check current page`.
+5. Click `Copy triage reply`.
+6. Paste the copied reply into email and send after a quick human read.
 
 Target time:
 
 - Free triage: 5-8 minutes per qualified submission.
-- Paid Snapshot: 45-60 minutes per order.
+- Paid Launch Lite Snapshot: 35-60 minutes per order.
+
+The extension stores the active case locally in Chrome only. It does not upload Tally data, login to accounts, send emails, or submit appeals.
 
 ## Free Triage Response
 
@@ -72,10 +74,12 @@ Quick result:
 - Availability/purchase signal: [found / weak / not found]
 - Business identity signal: [found / weak / not found]
 
-If you want a page-by-page Evidence Snapshot, I can review the submitted URL, issue context, and affected product pages manually.
+If you want a page-by-page Launch Lite Snapshot, I can review the submitted URL, issue context, and affected product pages manually.
 
-Evidence Snapshot: $49
-Includes: page-by-page evidence brief, delivered in 48h after qualified intake, one clarification reply.
+Launch Lite Snapshot: $29
+Includes: 1-2 page evidence brief, delivered in 48h after qualified intake, one clarification reply.
+
+This is early validation pricing for qualified stores. The Standard Snapshot returns to $49 after launch validation.
 
 No account login, no appeal submission, no promised platform decision.
 ```
@@ -94,7 +98,7 @@ If you have a specific Merchant Center issue screenshot or affected product URL,
 
 ## Paid Snapshot Scope
 
-Only accept $49 Snapshot orders when the user provides:
+Only accept $29 Launch Lite Snapshot orders when the user provides:
 
 - Store URL
 - At least one affected product URL
