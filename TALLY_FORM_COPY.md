@@ -1,6 +1,6 @@
 # Tally Form Copy
 
-Use this to update the existing Tally form:
+Use this to update the existing Tally form. This form is now the full-material intake after the instant free preview, not the first user action:
 
 `https://tally.so/r/EkA01B`
 
@@ -11,7 +11,7 @@ Use this to update the existing Tally form:
 ## Form Description
 
 ```text
-Submit your public store URL and issue context. We only review visible public pages.
+Submit full public-page evidence after your instant free preview. We only review visible public pages.
 
 No account login. No admin access. No appeal submission. This independent check does not control platform decisions.
 ```
