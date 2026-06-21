@@ -4,7 +4,7 @@
 
 Turn MerchantFix from a Chrome Web Store-dependent launch into a passive intake funnel:
 
-`Free public-page check -> qualified issue -> $29 Launch Lite Snapshot`
+`Instant free preview -> full-material Tally intake -> qualified issue -> $29 Launch Lite Snapshot`
 
 The founder should act as operator and reviewer, not as a daily outbound marketer.
 
@@ -16,9 +16,9 @@ Landing page:
 
 Primary CTA:
 
-`https://tally.so/r/EkA01B?source=free_check_page`
+`#instant-check`
 
-Use the same Tally form for now. Do not create a second form until the first 10 qualified submissions prove the flow.
+Use the same Tally form as the full-material backup intake. Do not create a second form until the first 10 qualified submissions prove the flow.
 
 ## Tally Form Fields
 
@@ -35,21 +35,22 @@ Recommended fields:
 
 ## Daily Operator Loop
 
-Run once per day, not all day. Use the local Chrome extension as the intake operator tool:
+Run once per day, not all day. The public page now gives users an instant client-side preview. Use Tally and the local Chrome extension only for cases that submit full materials:
 
-1. Open Tally inbox and open one submission detail page.
-2. Click the extension button `Capture Tally submission`.
-3. Click `Open product URL`.
-4. On the product page, click `Check current page`.
-5. Click `Copy triage reply`.
-6. Paste the copied reply into email and send after a quick human read.
+1. Review instant-check leads that continue into Tally full-material intake.
+2. Open one Tally submission detail page.
+3. Click the extension button `Capture Tally submission`.
+4. Click `Open product URL`.
+5. On the product page, click `Check current page`.
+6. Click `Copy triage reply`.
+7. Paste the copied reply into email and send after a quick human read.
 
 Target time:
 
 - Free triage: 5-8 minutes per qualified submission.
 - Paid Launch Lite Snapshot: 35-60 minutes per order.
 
-The extension stores the active case locally in Chrome only. It does not upload Tally data, login to accounts, send emails, or submit appeals.
+The public instant preview runs locally in the browser and does not submit data by itself. Tally stores full-material submissions only when the user clicks through and submits the form. The extension stores the active case locally in Chrome only. It does not upload Tally data, login to accounts, send emails, or submit appeals.
 
 ## Free Triage Response
 
