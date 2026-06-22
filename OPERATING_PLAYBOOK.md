@@ -35,6 +35,27 @@ If the local Chrome extension is unavailable or not released yet, continue manua
 
 The extension is a speed tool, not a launch blocker.
 
+## Paid-Link Flow
+
+Use this order until the first 3 paid orders:
+
+1. User runs the instant free preview.
+2. User submits full public-page materials through Tally.
+3. Operator rejects unsafe or unqualified cases before requesting payment.
+4. Qualified users receive or see the $29 Launch Lite Snapshot payment link.
+5. Payment success redirects to `thank-you.html`.
+6. Delivery target starts after qualified paid intake, not after a vague page visit.
+
+Current public paid-scope page:
+
+`checkout.html`
+
+Payment placeholder marker:
+
+`PAYMENT_LINK_PLACEHOLDER`
+
+Do not publish a fake payment URL. Replace the placeholder only with the real provider checkout link.
+
 ## Tally Form Fields
 
 Recommended fields:
@@ -47,6 +68,7 @@ Recommended fields:
 - Affected product URLs
 - Privacy policy link: `https://soup-rolls.github.io/merchantfix-free-check/privacy.html`
 - Terms link: `https://soup-rolls.github.io/merchantfix-free-check/terms.html`
+- Paid scope link: `https://soup-rolls.github.io/merchantfix-free-check/checkout.html`
 - Consent checkbox:
   `I understand this is an independent public-page evidence review, not Google, not an appeal service, and does not control platform decisions. I will not upload passwords, cookies, payment data, or customer data.`
 
