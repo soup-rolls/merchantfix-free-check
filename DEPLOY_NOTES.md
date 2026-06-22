@@ -33,6 +33,8 @@ Required files:
 - `favicon.ico`
 - `privacy.html`
 - `terms.html`
+- `checkout.html`
+- `thank-you.html`
 - `contact.html`
 - `404.html`
 - `health.txt`
@@ -44,8 +46,16 @@ Required files:
 Replace or reuse these links:
 
 - Primary intake: `https://tally.so/r/EkA01B?source=instant_check`
+- Checkout intake: `https://tally.so/r/EkA01B?source=checkout`
 - Footer intake: `https://tally.so/r/EkA01B?source=footer`
 - Category intake: `https://tally.so/r/EkA01B?source=<category-slug>`
+
+Payment link setup:
+
+- Keep `checkout.html` live before payment setup so users can review paid scope.
+- When the real payment URL exists, replace the `PAYMENT_LINK_PLACEHOLDER` note in `checkout.html` with the provider checkout link.
+- Use `thank-you.html` as the future payment success redirect page.
+- Do not add a fake or test payment link to the public page.
 
 Use a custom domain before paid traffic or larger partner outreach. GitHub Pages is acceptable for validation, but a domain such as `merchantfix.ai` or `merchantfix.co` will reduce payment-page trust friction.
 
@@ -63,6 +73,6 @@ Set a free uptime monitor after the first paid order:
 
 This page is not a heavy marketing campaign. It is a passive intake surface:
 
-`visitor -> instant free preview -> optional full-material Tally intake -> optional $29 Launch Lite Snapshot`
+`visitor -> instant free preview -> optional full-material Tally intake -> paid-scope check -> optional $29 Launch Lite Snapshot`
 
 Do not add blog, dashboard, pricing table, login, or automation features before the first paid Snapshot order.
