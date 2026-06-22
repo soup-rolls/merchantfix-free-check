@@ -17,6 +17,7 @@ No account login. No admin access. No appeal submission. This independent check 
 
 Privacy policy: https://soup-rolls.github.io/merchantfix-free-check/privacy.html
 Terms: https://soup-rolls.github.io/merchantfix-free-check/terms.html
+Paid scope: https://soup-rolls.github.io/merchantfix-free-check/checkout.html
 Qualified free-triage replies target 1 business day. Paid Launch Lite Snapshot delivery targets 48h after qualified intake.
 ```
 
@@ -137,6 +138,16 @@ If the submitted URL has clear public-page evidence gaps, expect a free-triage r
 
 If the case is qualified and you request a $29 Launch Lite Snapshot, delivery targets 48h after qualified paid intake.
 ```
+
+## Payment Link Setup
+
+Use this after the real payment provider link exists:
+
+- Keep Tally as the full-material intake.
+- Add the payment provider success redirect to:
+  `https://soup-rolls.github.io/merchantfix-free-check/thank-you.html`
+- Replace the `PAYMENT_LINK_PLACEHOLDER` note in `checkout.html` with the real payment URL.
+- Do not request payment for submissions that lack a store URL, affected product URL, issue text or screenshot, and consent.
 
 ## Hidden Field / Source Tracking
 
