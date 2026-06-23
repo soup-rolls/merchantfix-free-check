@@ -14,6 +14,16 @@ Public boundary:
 - Not Google and not a platform partner.
 - No account login, admin access, appeal submission, or promised platform decision.
 
+## Path Decision
+
+Current launch path:
+
+`public website -> indexed error pages -> free preview -> Tally intake -> paid digital evidence brief`
+
+This path is not weaker than the Chrome extension path for first revenue. The Chrome extension is a useful acquisition and trust asset, but it depends on store review, install friction, and extension distribution. The public website path is easier to explain to payment providers because it sells a defined digital service with a visible sample, terms, intake record, and email delivery record.
+
+Use the extension later as an additional entry point. Do not make it a launch blocker.
+
 ## Public Entry
 
 Landing page:
@@ -55,6 +65,12 @@ Payment placeholder marker:
 `PAYMENT_LINK_PLACEHOLDER`
 
 Do not publish a fake payment URL. Replace the placeholder only with the real provider checkout link.
+
+Public sample deliverable:
+
+`sample-report.html`
+
+Use this page when a payment provider, buyer, or support reviewer asks what the digital service delivers.
 
 ## Tally Form Fields
 
@@ -162,6 +178,25 @@ Do not accept:
 - Payment information
 - Requests to submit appeals
 - Requests to promise platform outcomes
+
+## Payment Review Evidence Pack
+
+Keep these materials ready for PayPal or any payment-provider review:
+
+- Public service page: `https://soup-rolls.github.io/merchantfix-free-check/checkout.html`
+- Sample deliverable: `https://soup-rolls.github.io/merchantfix-free-check/sample-report.html`
+- Terms: `https://soup-rolls.github.io/merchantfix-free-check/terms.html`
+- Privacy policy: `https://soup-rolls.github.io/merchantfix-free-check/privacy.html`
+- Intake form URL and one redacted sample submission.
+- One redacted sample evidence brief.
+- Proof that no account login, passwords, cookies, customer exports, or admin access are requested.
+- Delivery evidence for each paid order: buyer email, payment ID, report file, sent-email timestamp, and any clarification reply.
+
+Short explanation for payment review:
+
+```text
+MerchantFix sells a digital public-page evidence brief for ecommerce sellers preparing Merchant Center materials. The service reviews only public storefront pages and buyer-submitted screenshots or issue text. It does not require account login, does not access private dashboards, does not submit appeals, and does not promise platform outcomes. Paid reports are delivered by email within the stated delivery target after qualified intake.
+```
 
 ## Refund and Complaint Path
 
