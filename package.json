@@ -1,0 +1,12 @@
+{
+  "name": "merchantfix-free-check",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "visual:check": "node tools/visual-check.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.57.0"
+  }
+}

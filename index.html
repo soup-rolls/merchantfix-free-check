@@ -60,14 +60,14 @@
 :root {
   color-scheme: light dark;
   --ink: #151613;
-  --muted: #52574d;
-  --line: #dfe3d8;
-  --paper: #f8f7f1;
+  --muted: #53615d;
+  --line: #dbe3e1;
+  --paper: #f4f7f6;
   --panel: #ffffff;
   --accent: #27735e;
   --accent-dark: #174f41;
   --amber: #c47b27;
-  --soft: #edf3e5;
+  --soft: #e8f1ee;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -80,8 +80,10 @@
 body {
   margin: 0;
   background:
-    linear-gradient(120deg, rgba(39, 115, 94, 0.12), transparent 34%),
-    linear-gradient(180deg, #fbfaf6 0%, var(--paper) 100%);
+    linear-gradient(90deg, rgba(23, 79, 65, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(23, 79, 65, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, #fbfdfd 0%, var(--paper) 100%);
+  background-size: 44px 44px, 44px 44px, auto;
   color: var(--ink);
 }
 
@@ -129,7 +131,7 @@ html {
   align-items: center;
   justify-content: space-between;
   padding: 18px clamp(18px, 4vw, 56px);
-  background: rgba(248, 247, 241, 0.88);
+  background: rgba(251, 253, 253, 0.9);
   border-bottom: 1px solid rgba(21, 22, 19, 0.08);
   backdrop-filter: blur(18px);
 }
@@ -167,15 +169,26 @@ html {
 .hero {
   min-height: calc(100svh - 77px);
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.8fr);
-  gap: clamp(34px, 6vw, 92px);
-  align-items: center;
-  padding: clamp(48px, 8vw, 96px) clamp(20px, 6vw, 88px);
+  grid-template-columns: minmax(360px, 0.88fr) minmax(560px, 0.92fr);
+  gap: clamp(34px, 6vw, 78px);
+  align-items: start;
+  padding: clamp(48px, 7vw, 82px) clamp(20px, 6vw, 88px);
   overflow: hidden;
 }
 
+.hero::before {
+  content: none;
+}
+
 .hero-copy {
-  max-width: 740px;
+  max-width: none;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  color: var(--ink);
 }
 
 .eyebrow {
@@ -195,8 +208,9 @@ h2 {
 }
 
 h1 {
-  max-width: 760px;
-  font-size: clamp(42px, 6.8vw, 88px);
+  max-width: 620px;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 1;
 }
 
 h2 {
@@ -204,18 +218,54 @@ h2 {
 }
 
 .lede {
-  max-width: 610px;
-  margin: 28px 0 0;
+  max-width: 540px;
+  margin: 18px 0 0;
   color: var(--muted);
-  font-size: clamp(18px, 2vw, 23px);
+  font-size: clamp(16px, 1.45vw, 18px);
   line-height: 1.45;
+}
+
+.hero-copy .lede,
+.hero-copy .boundary,
+.case-row dd {
+  color: var(--muted);
+}
+
+.case-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-id {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.case-state {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 34px;
+  margin-top: 26px;
 }
 
 .primary,
@@ -239,7 +289,7 @@ h2 {
 .secondary {
   border: 1px solid var(--line);
   color: var(--accent-dark);
-  background: rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .primary:hover,
@@ -253,26 +303,66 @@ h2 {
   font-size: 14px;
 }
 
-.hero-visual {
-  min-height: 560px;
+.case-ledger {
   display: grid;
-  place-items: center;
-  perspective: 1200px;
+  gap: 0;
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.case-row {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-row:last-child {
+  border-bottom: 0;
+}
+
+.case-row dt,
+.case-row dd {
+  margin: 0;
+}
+
+.case-row dt {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-visual {
+  min-height: auto;
+  display: grid;
+  place-items: stretch;
+  position: relative;
+  z-index: 1;
 }
 
 .instant-panel {
-  width: min(100%, 540px);
-  padding: 26px;
-  border: 1px solid rgba(21, 22, 19, 0.16);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 28px 90px rgba(23, 79, 65, 0.15);
-  animation: lift 900ms ease both;
+  width: 100%;
+  align-self: start;
+  position: relative;
+  display: grid;
+  align-content: start;
+  padding: 0 0 0 clamp(22px, 3vw, 32px);
+  border-left: 2px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  overflow: hidden;
+  animation: rise 700ms ease both;
 }
 
 .instant-panel h2 {
   margin: 0 0 8px;
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(25px, 2.6vw, 34px);
   line-height: 1.08;
 }
 
@@ -282,10 +372,280 @@ h2 {
   line-height: 1.5;
 }
 
+.desk-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.desk-topbar span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.desk-topbar strong {
+  color: var(--accent-dark);
+  font-size: 12px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.workbench-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.desk-input,
+.desk-output {
+  min-width: 0;
+}
+
+.desk-output {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+  gap: clamp(20px, 2.6vw, 30px);
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.evidence-board {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.board-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.board-title span:last-child {
+  color: var(--muted);
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.evidence-grid span {
+  min-height: auto;
+  display: block;
+  padding: 11px 0;
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.evidence-grid span:last-child {
+  border-bottom: 0;
+}
+
+.evidence-grid strong {
+  display: inline-block;
+  min-width: 82px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.output-strip {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  padding-left: 22px;
+  border: 0;
+  border-left: 2px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.output-strip strong {
+  margin-bottom: 8px;
+  color: var(--accent-dark);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.output-strip span {
+  padding: 11px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.audit-log {
+  display: none;
+  border: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.audit-log.is-visible {
+  display: block;
+}
+
+.audit-log .log-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 72px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  animation: log-enter 520ms ease both;
+}
+
+.audit-log .log-row:nth-of-type(2) {
+  animation-delay: 120ms;
+}
+
+.audit-log .log-row:nth-of-type(3) {
+  animation-delay: 240ms;
+}
+
+.audit-log .log-row:nth-of-type(4) {
+  animation-delay: 360ms;
+}
+
+.audit-log .log-row:last-child {
+  border-bottom: 0;
+}
+
+.audit-log strong {
+  color: var(--accent-dark);
+}
+
+.log-pass {
+  color: var(--accent-dark);
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
+
+.log-warn {
+  color: #98610f;
+  animation: status-pulse 2.4s ease-in-out infinite;
+  animation-delay: 600ms;
+}
+
+.scope-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 12px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.scope-line span {
+  color: var(--accent-dark);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.pulse-line {
+  position: relative;
+  height: 3px;
+  margin: 14px 0 0;
+  overflow: hidden;
+  background: rgba(39, 115, 94, 0.16);
+}
+
+.pulse-line::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -42%;
+  width: 42%;
+  background: linear-gradient(90deg, transparent, rgba(39, 115, 94, 0.2), var(--accent), rgba(240, 182, 111, 0.8), transparent);
+  animation: pulse-sweep 2.2s ease-in-out infinite;
+}
+
+.evidence-meter {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 74px;
+  gap: 12px;
+  align-items: center;
+  margin: 16px 0 2px;
+  padding: 12px 0;
+  border-block: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.evidence-meter span,
+.evidence-meter strong {
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.meter-track {
+  position: relative;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dce7e3;
+}
+
+.meter-track i {
+  display: block;
+  width: 64%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), #f0b66f);
+}
+
+.meter-track::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -46%;
+  width: 46%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95), rgba(240, 182, 111, 0.55), transparent);
+  animation: meter-sweep 2.4s ease-in-out infinite;
+}
+
 .check-form {
   display: grid;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 0;
+  padding-top: 2px;
+}
+
+.instant-panel.is-focused {
+  outline: 3px solid rgba(39, 115, 94, 0.24);
+  outline-offset: 4px;
 }
 
 .check-form label {
@@ -303,7 +663,7 @@ h2 {
   padding: 12px 13px;
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: #fbfcf8;
+  background: rgba(251, 253, 252, 0.78);
   color: var(--ink);
   font: inherit;
   font-size: 14px;
@@ -328,13 +688,19 @@ h2 {
 
 .instant-result {
   display: none;
-  margin-top: 18px;
-  padding-top: 18px;
+  margin-top: 0;
+  padding: 18px 0 0;
+  border: 0;
   border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .instant-result.is-visible {
   display: block;
+  animation: result-in 220ms ease both;
 }
 
 .result-head {
@@ -387,94 +753,11 @@ h2 {
   font-size: 13px;
 }
 
-.scan-plane {
-  position: relative;
-  width: min(100%, 520px);
-  aspect-ratio: 0.78;
-  padding: 24px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78)),
-    repeating-linear-gradient(0deg, transparent, transparent 42px, rgba(39, 115, 94, 0.08) 43px);
-  border: 1px solid rgba(21, 22, 19, 0.16);
-  border-radius: 8px;
-  box-shadow: 0 28px 90px rgba(23, 79, 65, 0.16);
-  transform: rotateX(8deg) rotateY(-10deg);
-  animation: lift 900ms ease both;
-}
-
-.scan-head {
-  display: flex;
-  gap: 8px;
-}
-
-.scan-head span {
-  width: 11px;
-  height: 11px;
-  border-radius: 99px;
-  background: #cfd6c5;
-}
-
-.url-row {
-  margin: 28px 0;
-  padding: 15px 16px;
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  color: var(--muted);
-  font-size: 14px;
-  background: #fbfcf8;
-}
-
-.scan-list {
-  display: grid;
-  gap: 14px;
-}
-
-.scan-list div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.scan-list strong {
-  font-size: 18px;
-}
-
-.scan-list span {
-  min-width: 66px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.ok {
-  background: var(--soft);
-  color: var(--accent-dark);
-}
-
-.warn {
-  background: #fff1dd;
-  color: #8b4c12;
-}
-
-.scan-line {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  top: 46px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  animation: scan 2.8s ease-in-out infinite;
-}
-
 .strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-block: 1px solid var(--line);
-  background: #fffef9;
+  background: #fbfdfc;
 }
 
 .strip span {
@@ -495,7 +778,7 @@ h2 {
   gap: 24px;
   padding: 34px clamp(20px, 6vw, 88px);
   border-bottom: 1px solid var(--line);
-  background: #fffef9;
+  background: #f9fbfb;
 }
 
 .directory-block {
@@ -619,8 +902,8 @@ h2 {
 .final {
   text-align: center;
   background:
-    linear-gradient(120deg, rgba(196, 123, 39, 0.14), transparent),
-    #fffef8;
+    linear-gradient(120deg, rgba(39, 115, 94, 0.09), transparent),
+    #f7faf9;
 }
 
 .final h2 {
@@ -635,7 +918,7 @@ h2 {
 .site-footer {
   padding: 28px clamp(20px, 6vw, 88px) 48px;
   border-top: 1px solid var(--line);
-  background: #fffef9;
+  background: #fbfdfc;
 }
 
 .site-footer-grid {
@@ -674,26 +957,74 @@ h2 {
   font-weight: 800;
 }
 
-@keyframes scan {
-  0%,
-  100% {
-    top: 46px;
-    opacity: 0.15;
-  }
-  50% {
-    top: calc(100% - 40px);
-    opacity: 0.9;
-  }
-}
-
-@keyframes lift {
+@keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px) rotateX(8deg) rotateY(-10deg);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) rotateX(8deg) rotateY(-10deg);
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-sweep {
+  0% {
+    transform: translateX(0);
+    opacity: 0.2;
+  }
+  45% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(430%);
+    opacity: 0.2;
+  }
+}
+
+@keyframes meter-sweep {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(380%);
+    opacity: 0;
+  }
+}
+
+@keyframes log-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes result-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 0.62;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
@@ -715,20 +1046,71 @@ h2 {
 
   .hero {
     min-height: auto;
-    padding-top: 42px;
+    padding-top: 26px;
+    gap: 26px;
+  }
+
+  .hero-copy {
+    min-height: auto;
+    gap: 18px;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: clamp(34px, 9.5vw, 42px);
+  }
+
+  .lede {
+    margin-top: 18px;
+  }
+
+  .actions {
+    margin-top: 24px;
   }
 
   .hero-visual {
-    min-height: 390px;
-  }
-
-  .scan-plane {
-    width: min(92vw, 430px);
-    transform: none;
+    min-height: auto;
   }
 
   .instant-panel {
     width: min(92vw, 520px);
+  }
+
+  .workbench-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .desk-output {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-grid span,
+  .evidence-grid span:nth-child(2n),
+  .evidence-grid span:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .evidence-grid span:last-child {
+    border-bottom: 0;
+  }
+
+  .evidence-meter {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .case-ledger {
+    display: none;
+  }
+
+  .hero-copy .secondary,
+  .hero-copy .boundary {
+    display: none;
   }
 
   .form-row {
@@ -769,9 +1151,13 @@ h2 {
 
   .primary,
   .secondary,
-  .scan-line,
   .instant-panel,
-  .scan-plane {
+  .meter-track::after,
+  .pulse-line::after,
+  .audit-log .log-row,
+  .log-pass,
+  .log-warn,
+  .instant-result.is-visible {
     animation: none !important;
     transition: none !important;
   }
@@ -805,8 +1191,6 @@ h2 {
 
   .secondary,
   .instant-panel,
-  .scan-plane,
-  .url-row,
   .strip {
     background: rgba(20, 26, 22, 0.94);
   }
@@ -836,68 +1220,136 @@ h2 {
         <img src="assets/merchantfix-icon.png" alt="" />
         <span>MerchantFix</span>
       </a>
-      <a class="nav-link" href="#instant-check">Start free check</a>
+      <a class="nav-link js-focus-check" href="#instant-check">Start free check</a>
     </header>
 
     <main id="content">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Free public-page check</p>
-          <h1>Find store-page evidence gaps before a Merchant Center review.</h1>
-          <p class="lede">
-            Submit a store URL, product URL, and issue context. Get an instant evidence-readiness preview before sending full materials.
-          </p>
-          <div class="actions">
-            <a class="primary" href="#instant-check">Run instant free check</a>
-            <a class="secondary" href="#how-it-works">See what gets checked</a>
+          <div>
+            <div class="case-kicker">
+              <span class="case-id">MF-OPEN-PAGE-001</span>
+              <span class="case-state">No login required</span>
+            </div>
+            <p class="eyebrow">Public-page evidence desk</p>
+            <h1>Pre-check the public store page before review.</h1>
+            <p class="lede">
+              Paste the store URL, product URL, and visible issue text. MerchantFix returns a narrow readiness preview before you request a paid Snapshot.
+            </p>
+            <div class="actions">
+              <a class="primary js-focus-check" href="#instant-check">Open the check desk</a>
+              <a class="secondary" href="sample-report.html">View sample brief</a>
+            </div>
+            <p class="boundary">No account login. No admin access. No appeal submission. No promised platform decision.</p>
           </div>
-          <p class="boundary">No account login. No admin access. No appeal submission. No promised platform decision.</p>
+          <div>
+            <dl class="case-ledger" aria-label="Case boundary">
+              <div class="case-row">
+                <dt>Scope</dt>
+                <dd>Public product and store pages only</dd>
+              </div>
+              <div class="case-row">
+                <dt>Checks</dt>
+                <dd>Price, shipping, availability, policy, identifiers, trust evidence</dd>
+              </div>
+            </dl>
+          </div>
         </div>
         <div class="hero-visual" id="instant-check">
           <section class="instant-panel" aria-label="Instant free check">
-            <p class="eyebrow">Instant free check</p>
-            <h2>Get a first-pass evidence preview.</h2>
-            <p>Client-side preview based on your submitted URLs and issue text. Full evidence review still uses public pages and your uploaded context.</p>
+            <div class="desk-topbar">
+              <span>Evidence preview console</span>
+              <strong>Read-only public-page check</strong>
+            </div>
+            <p class="eyebrow">Instant evidence pre-check</p>
+            <h2>Run a first-pass evidence check.</h2>
+            <p>Generate a client-side preview from submitted URLs and issue text. A full review only uses public pages and materials you provide.</p>
+            <div class="scope-line" aria-label="Professional review boundaries">
+              <span>Public pages only</span>
+              <span>6 evidence signals</span>
+              <span>48h paid Snapshot SLA</span>
+              <span>1 clarification reply</span>
+            </div>
+            <div class="pulse-line" aria-hidden="true"></div>
+            <div class="evidence-meter" aria-label="Evidence readiness preview">
+              <span>Readiness</span>
+              <div class="meter-track"><i></i></div>
+              <strong>Preview</strong>
+            </div>
 
-            <form class="check-form" id="instantCheckForm">
-              <div class="form-row">
-                <label>
-                  Email
-                  <input id="checkEmail" type="email" placeholder="seller@example.com" required />
-                </label>
-                <label>
-                  Store URL
-                  <input id="checkStoreUrl" type="url" placeholder="https://yourstore.com" required />
-                </label>
+            <div class="workbench-grid">
+              <div class="desk-input">
+                <form class="check-form" id="instantCheckForm">
+                  <div class="form-row">
+                    <label>
+                      Email
+                      <input id="checkEmail" type="email" placeholder="seller@example.com" required />
+                    </label>
+                    <label>
+                      Store URL
+                      <input id="checkStoreUrl" type="url" placeholder="https://yourstore.com" required />
+                    </label>
+                  </div>
+                  <label>
+                    Product URL
+                    <input id="checkProductUrl" type="url" placeholder="https://yourstore.com/products/example" required />
+                  </label>
+                  <label>
+                    Merchant Center issue text
+                    <textarea id="checkIssueText" placeholder="Paste the visible issue text or describe the affected listing. Do not include passwords, cookies, payment data, or customer data." required></textarea>
+                  </label>
+                  <button class="primary" type="submit">Generate free preview</button>
+                  <span class="microcopy">This preview does not crawl private accounts or submit appeals. It helps decide whether the case is ready for a $29 Launch Lite Snapshot.</span>
+                </form>
               </div>
-              <label>
-                Product URL
-                <input id="checkProductUrl" type="url" placeholder="https://yourstore.com/products/example" required />
-              </label>
-              <label>
-                Merchant Center issue text
-                <textarea id="checkIssueText" placeholder="Paste the visible issue text or describe the affected listing. Do not include passwords, cookies, payment data, or customer data." required></textarea>
-              </label>
-              <button class="primary" type="submit">Generate free preview</button>
-              <span class="microcopy">This preview does not crawl private accounts or submit appeals. It helps decide whether a $29 Launch Lite Snapshot is worth requesting.</span>
-            </form>
-
-            <section class="instant-result" id="instantResult" aria-live="polite">
-              <div class="result-head">
-                <div>
-                  <p class="eyebrow">Preview result</p>
-                  <h2 id="resultTitle">Evidence readiness</h2>
+              <aside class="desk-output" aria-label="Evidence and output preview">
+                <section class="evidence-board">
+                  <div class="board-title">
+                    <span>Evidence matrix</span>
+                    <span>6 signals</span>
+                  </div>
+                  <div class="evidence-grid">
+                    <span><strong>Price</strong>Currency and product price consistency</span>
+                    <span><strong>Shipping</strong>Delivery policy and visible cost context</span>
+                    <span><strong>Returns</strong>Return/refund page reachability</span>
+                    <span><strong>Availability</strong>In stock, sold out, preorder state</span>
+                    <span><strong>Identifiers</strong>Brand, GTIN, MPN issue hints</span>
+                    <span><strong>Trust</strong>Contact, policy, and business signals</span>
+                  </div>
+                </section>
+                <div class="output-strip" aria-label="Snapshot output package">
+                  <strong>Output</strong>
+                  <span>free_preview.txt</span>
+                  <span>brief.pdf</span>
+                  <span>gap_checklist.csv</span>
                 </div>
-                <div class="score-ring"><span id="resultScore">--</span></div>
-              </div>
-              <p id="resultSummary"></p>
-              <ul class="result-list" id="resultGaps"></ul>
-              <div class="result-actions">
-                <button class="secondary" id="copyPreviewButton" type="button">Copy preview</button>
-                <a class="primary" id="tallyDeepLink" href="https://tally.so/r/EkA01B?source=instant_check&utm_source=merchantfix_site&utm_campaign=instant_free_check" target="_blank" rel="noopener noreferrer">Submit full materials</a>
-              </div>
-              <p class="microcopy">For screenshots, affected product lists, and a human-readable report, use the full intake form.</p>
-            </section>
+                <section class="audit-log" id="auditLog" aria-label="Evidence processing log">
+                  <div class="board-title">
+                    <span>Check log</span>
+                    <span>preview mode</span>
+                  </div>
+                  <div class="log-row"><strong>00:01</strong><span>Store URL format ready</span><span class="log-pass">PASS</span></div>
+                  <div class="log-row"><strong>00:02</strong><span>Product page context required</span><span class="log-warn">WAIT</span></div>
+                  <div class="log-row"><strong>00:03</strong><span>Issue text maps to evidence lanes</span><span class="log-pass">READY</span></div>
+                </section>
+                <section class="instant-result" id="instantResult" aria-live="polite">
+                  <div class="result-head">
+                    <div>
+                      <p class="eyebrow">Preview result</p>
+                      <h2 id="resultTitle">Evidence readiness</h2>
+                    </div>
+                    <div class="score-ring"><span id="resultScore">--</span></div>
+                  </div>
+                  <p id="resultSummary"></p>
+                  <ul class="result-list" id="resultGaps"></ul>
+                  <div class="result-actions">
+                    <button class="secondary" id="copyPreviewButton" type="button">Copy preview</button>
+                    <a class="primary" id="tallyDeepLink" href="https://tally.so/r/EkA01B?source=instant_check&utm_source=merchantfix_site&utm_campaign=instant_free_check" target="_blank" rel="noopener noreferrer">Submit full materials</a>
+                  </div>
+                  <p class="microcopy">For screenshots, affected product lists, and a human-readable report, use the full intake form.</p>
+                </section>
+              </aside>
+            </div>
           </section>
         </div>
       </section>
@@ -995,7 +1447,7 @@ h2 {
 
       <section class="final">
         <h2>Start with the instant free preview.</h2>
-        <a class="primary" href="#instant-check">Run instant check</a>
+        <a class="primary js-focus-check" href="#instant-check">Run instant check</a>
         <p>Independent evidence review. Not Google. Does not control platform decisions.</p>
         <p class="library-link"><a href="errors/">Browse Merchant Center error library</a></p>
       </section>
@@ -1027,8 +1479,21 @@ const resultSummary = document.getElementById("resultSummary");
 const resultGaps = document.getElementById("resultGaps");
 const copyPreviewButton = document.getElementById("copyPreviewButton");
 const tallyDeepLink = document.getElementById("tallyDeepLink");
+const checkPanel = document.querySelector(".instant-panel");
+const emailInput = document.getElementById("checkEmail");
+const auditLog = document.getElementById("auditLog");
 
 let latestPreview = "";
+
+document.querySelectorAll(".js-focus-check").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    checkPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    checkPanel.classList.add("is-focused");
+    setTimeout(() => emailInput.focus({ preventScroll: true }), 450);
+    setTimeout(() => checkPanel.classList.remove("is-focused"), 1500);
+  });
+});
 
 const issuePatterns = [
   {
@@ -1187,6 +1652,7 @@ function renderPreview(preview, data) {
   ].join("\n");
 
   resultPanel.classList.add("is-visible");
+  auditLog.classList.add("is-visible");
   resultPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
@@ -1212,4 +1678,3 @@ copyPreviewButton.addEventListener("click", async () => {
 </script>
   </body>
 </html>
-
