@@ -1,7 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.resolve(__dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sitemapPath = path.join(root, "sitemap.xml");
 const siteHost = "soup-rolls.github.io";
 const key = "b6f0d8c4a9e14d28b5c7f3429016ab3e";
