@@ -35,6 +35,7 @@ Required files:
 - `terms.html`
 - `checkout.html`
 - `thank-you.html`
+- `sample-report.html`
 - `contact.html`
 - `404.html`
 - `health.txt`
@@ -55,6 +56,7 @@ Payment link setup:
 - Keep `checkout.html` live before payment setup so users can review paid scope.
 - When the real payment URL exists, replace the `PAYMENT_LINK_PLACEHOLDER` note in `checkout.html` with the provider checkout link.
 - Use `thank-you.html` as the future payment success redirect page.
+- Keep `sample-report.html` public as service evidence for payment review and buyer trust.
 - Do not add a fake or test payment link to the public page.
 
 Use a custom domain before paid traffic or larger partner outreach. GitHub Pages is acceptable for validation, but a domain such as `merchantfix.ai` or `merchantfix.co` will reduce payment-page trust friction.
