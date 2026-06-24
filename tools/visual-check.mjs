@@ -16,7 +16,12 @@ const pages = [
   "errors/price-mismatch.html",
   "errors/missing-value-gtin.html",
   "errors/return-policy-missing.html",
-  "errors/categories/trust-and-policy.html"
+  "errors/categories/trust-and-policy.html",
+  "guides/gmc-misrepresentation-checklist.html",
+  "guides/untrusted-store-evidence-check.html",
+  "guides/merchant-center-price-mismatch-checker.html",
+  "guides/merchant-center-return-policy-missing.html",
+  "guides/merchant-center-contact-information-checker.html"
 ];
 
 const viewports = [

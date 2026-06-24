@@ -18,7 +18,7 @@ No account login. No admin access. No appeal submission. This independent check 
 Privacy policy: https://soup-rolls.github.io/merchantfix-free-check/privacy.html
 Terms: https://soup-rolls.github.io/merchantfix-free-check/terms.html
 Paid scope: https://soup-rolls.github.io/merchantfix-free-check/checkout.html
-Qualified free-triage replies target 1 business day. Paid Launch Lite Snapshot delivery targets 48h after qualified intake.
+Qualified free-triage replies target 1 business day. Paid Launch Evidence Snapshot delivery targets 48h after qualified intake.
 ```
 
 ## Fields
@@ -136,7 +136,7 @@ Thanks. Your public-page evidence check request was received.
 
 If the submitted URL has clear public-page evidence gaps, expect a free-triage reply within 1 business day.
 
-If the case is qualified and you request a $29 Launch Lite Snapshot, delivery targets 48h after qualified paid intake.
+If the case is qualified and you request a $29 Evidence Snapshot, delivery targets 48h after qualified paid intake.
 ```
 
 ## Payment Link Setup

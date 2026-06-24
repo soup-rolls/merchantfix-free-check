@@ -75,6 +75,6 @@ Set a free uptime monitor after the first paid order:
 
 This page is not a heavy marketing campaign. It is a passive intake surface:
 
-`visitor -> instant free preview -> optional full-material Tally intake -> paid-scope check -> optional $29 Launch Lite Snapshot`
+`visitor -> instant free preview -> optional full-material Tally intake -> paid-scope check -> optional $29 Evidence Snapshot or $99 Fix Pack`
 
-Do not add blog, dashboard, pricing table, login, or automation features before the first paid Snapshot order.
+Do not add blog, dashboard, pricing table, login, or automation features before the first paid evidence review order.

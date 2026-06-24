@@ -658,7 +658,7 @@ function errorPage(item) {
     ...(priority ? [
       {
         name: `Can MerchantFix fix ${item.code} automatically?`,
-        text: "No. MerchantFix provides an independent public-page evidence pre-check and review package. It does not log in, submit appeals, or guarantee a platform decision."
+        text: "No. MerchantFix provides an independent public-page evidence pre-check and evidence review. It does not log in, submit appeals, or promise a platform decision."
       },
       {
         name: `What should I check first for ${item.code}?`,
@@ -744,7 +744,7 @@ function errorPage(item) {
         <aside class="panel">
           <p class="eyebrow">Short answer</p>
           <h2>Prepare evidence before paying for review.</h2>
-          <p class="lede">Use this page to decide whether your materials are ready for a $29 Launch Lite Snapshot.</p>
+          <p class="lede">Use this page to decide whether your materials fit a $29 Evidence Snapshot or $99 Evidence Fix Pack.</p>
           <div class="cta">
             <a class="primary" href="../#instant-check">Run Evidence Readiness Preview</a>
             <a class="secondary" href="./">Browse all errors</a>
@@ -813,7 +813,7 @@ function indexPage() {
         <aside class="panel">
           <p class="eyebrow">Use this library</p>
           <h2>Find the error, then run the preview.</h2>
-          <p class="lede">Each page includes evidence needed, common public-page gaps, and simplified before/after JSON before a $29 Launch Lite Snapshot.</p>
+          <p class="lede">Each page includes evidence needed, common public-page gaps, and simplified before/after JSON before a paid evidence review.</p>
           <div class="cta">
             <a class="primary" href="../#instant-check">Run Evidence Readiness Preview</a>
           </div>

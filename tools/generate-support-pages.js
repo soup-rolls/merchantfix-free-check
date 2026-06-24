@@ -274,7 +274,7 @@ const trustPages = [
   {
     file: "terms.html",
     title: "Terms of Service - MerchantFix",
-    description: "MerchantFix terms for the public-page evidence review and Launch Lite Snapshot service.",
+    description: "MerchantFix terms for the public-page Evidence Snapshot and Evidence Fix Pack service.",
     canonical: `${siteUrl}/terms.html`,
     eyebrow: "Terms",
     h1: "Simple terms for an independent review.",
@@ -283,7 +283,7 @@ const trustPages = [
       {
         title: "Scope of service",
         items: [
-          "Launch Lite Snapshot includes a short human review of public-page evidence and the context the user submits.",
+          "$29 Evidence Snapshot includes a short human review of public-page evidence and the context the user submits.",
           "The service is limited to visible public pages and uploaded context.",
           "It is not legal advice and does not act as Google or any platform operator."
         ]
@@ -300,7 +300,7 @@ const trustPages = [
         title: "Response and support",
         items: [
           "Qualified free-triage replies target 1 business day.",
-          "Launch Lite Snapshot delivery targets 48 hours after qualified intake.",
+          "$29 Evidence Snapshot delivery targets 48 hours after qualified intake; $99 Evidence Fix Pack targets 72 hours.",
           "The operator may refuse requests that contain passwords, cookies, 2FA codes, or requests to submit appeals."
         ]
       }

@@ -36,3 +36,13 @@ MerchantFix is an independent public-page evidence review for stores preparing M
 ## Additional reference pages
 - https://soup-rolls.github.io/merchantfix-free-check/errors/shipping-cost-mismatch.html
 - https://soup-rolls.github.io/merchantfix-free-check/errors/insufficient-contact-information.html
+
+## High-intent guides
+- https://soup-rolls.github.io/merchantfix-free-check/guides/gmc-misrepresentation-checklist.html
+- https://soup-rolls.github.io/merchantfix-free-check/guides/untrusted-store-evidence-check.html
+- https://soup-rolls.github.io/merchantfix-free-check/guides/merchant-center-price-mismatch-checker.html
+- https://soup-rolls.github.io/merchantfix-free-check/guides/merchant-center-return-policy-missing.html
+- https://soup-rolls.github.io/merchantfix-free-check/guides/merchant-center-contact-information-checker.html
+- https://soup-rolls.github.io/merchantfix-free-check/guides/merchant-center-shipping-cost-mismatch.html
+- https://soup-rolls.github.io/merchantfix-free-check/guides/merchant-center-availability-mismatch-checker.html
+- https://soup-rolls.github.io/merchantfix-free-check/guides/merchant-center-gtin-missing-fix.html

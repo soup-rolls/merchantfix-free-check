@@ -4,7 +4,7 @@
 
 Turn MerchantFix from a Chrome Web Store-dependent launch into a passive intake funnel:
 
-`Instant free preview -> full-material Tally intake -> qualified issue -> $29 Launch Lite Snapshot`
+`Instant free preview -> full-material Tally intake -> qualified issue -> $29 Evidence Snapshot or $99 Evidence Fix Pack`
 
 The founder should act as operator and reviewer, not as a daily outbound marketer.
 
@@ -52,7 +52,7 @@ Use this order until the first 3 paid orders:
 1. User runs the instant free preview.
 2. User submits full public-page materials through Tally.
 3. Operator rejects unsafe or unqualified cases before requesting payment.
-4. Qualified users receive or see the $29 Launch Lite Snapshot payment link.
+4. Qualified users receive or see the $29 Evidence Snapshot or $99 Evidence Fix Pack payment link.
 5. Payment success redirects to `thank-you.html`.
 6. Delivery target starts after qualified paid intake, not after a vague page visit.
 
@@ -103,12 +103,14 @@ Run once per day, not all day. The public page now gives users an instant client
 Target time:
 
 - Free triage: 5-8 minutes per qualified submission.
-- Paid Launch Lite Snapshot: 35-60 minutes per order.
+- Paid $29 Evidence Snapshot: 35-60 minutes per order.
+- Paid $99 Evidence Fix Pack: 90-150 minutes per order.
 
 Reply SLA:
 
 - Qualified free triage: first reply target within 1 business day.
-- Paid Launch Lite Snapshot: delivery target within 48h after qualified paid intake.
+- Paid $29 Evidence Snapshot: delivery target within 48h after qualified paid intake.
+- Paid $99 Evidence Fix Pack: delivery target within 72h after qualified paid intake.
 - If the case is not qualified, reply with the no-clear-issue template instead of selling paid review.
 
 The public instant preview runs locally in the browser and does not submit data by itself. Tally stores full-material submissions only when the user clicks through and submits the form. The extension stores the active case locally in Chrome only. It does not upload Tally data, login to accounts, send emails, or submit appeals.
@@ -138,12 +140,15 @@ Quick result:
 - Availability/purchase signal: [found / weak / not found]
 - Business identity signal: [found / weak / not found]
 
-If you want a page-by-page Launch Lite Snapshot, I can review the submitted URL, issue context, and affected product pages manually.
+If you want a page-by-page Evidence Snapshot, I can review the submitted URL, issue context, and affected product pages manually.
 
-Launch Lite Snapshot: $29
-Includes: 1-2 page evidence brief, delivered in 48h after qualified intake, one clarification reply.
+Evidence Snapshot: $29
+Includes: 1-2 page evidence brief, 3-5 priority findings, one suggested response paragraph, delivered in 48h after qualified intake, one clarification reply.
 
-This is early validation pricing for qualified stores. The Standard Snapshot returns to $49 after launch validation.
+Evidence Fix Pack: $99
+Includes: Snapshot scope plus page-by-page edit checklist, policy-link map, before/after copy blocks, one revised response draft, delivered in 72h after qualified intake.
+
+The $29 Snapshot can be credited toward the $99 Fix Pack within 7 days if the case needs broader cleanup.
 
 No account login, no appeal submission, no promised platform decision.
 ```
@@ -160,9 +165,9 @@ I did not find an obvious public-page evidence gap in the quick scan. This does 
 If you have a specific Merchant Center issue screenshot or affected product URL, reply with that context and I can re-check the exact page.
 ```
 
-## Paid Snapshot Scope
+## Paid Product Scope
 
-Only accept $29 Launch Lite Snapshot orders when the user provides:
+Only accept paid orders when the user provides:
 
 - Store URL
 - At least one affected product URL
@@ -178,6 +183,66 @@ Do not accept:
 - Payment information
 - Requests to submit appeals
 - Requests to promise platform outcomes
+
+### $29 Evidence Snapshot
+
+Accept when the user has one clear issue path:
+
+- Misrepresentation or suspicious store evidence
+- Untrusted store evidence
+- Price or availability mismatch
+- Missing or weak return/refund policy
+- Missing or weak contact/support evidence
+- Missing GTIN or identifier evidence
+
+Deliver:
+
+- 1-2 page evidence brief
+- 3-5 priority findings
+- Severity labels: blocker, important, cleanup
+- Public URLs checked
+- One suggested response paragraph
+- One clarification reply
+
+Do not include:
+
+- Full policy rewriting
+- Multiple response drafts
+- Feed repair
+- Store theme editing
+- Appeal submission
+- Account login
+
+### $99 Evidence Fix Pack
+
+Accept when the submitted materials show multiple public-page gaps or the buyer wants a fuller repair checklist.
+
+Deliver:
+
+- Everything in the $29 Snapshot
+- Page-by-page edit checklist
+- Policy-link map across homepage, product page, footer, contact, shipping, returns/refund, privacy, terms
+- Before/after copy blocks for the visible gaps
+- One revised response draft
+- One follow-up clarification reply
+
+Do not include:
+
+- Backend implementation
+- Shopify admin access
+- Feed upload
+- Legal review
+- Guaranteed platform result
+
+### Triage Decision Rule
+
+Use this rule before sending a payment link:
+
+- If no issue text or screenshot: ask for issue context first.
+- If no affected product URL: ask for one product URL first.
+- If the gap is one narrow issue: offer $29 Snapshot.
+- If the gap spans policies, contact, price, and product pages: offer $99 Fix Pack.
+- If the request requires login, appeal submission, or promised recovery: reject politely.
 
 ## Payment Review Evidence Pack
 
@@ -241,4 +306,79 @@ After 14 days:
 - If submissions exist but no paid orders: improve sample report and pricing language.
 - If no qualified submissions: distribution, not product, is the bottleneck.
 
-Do not build Radar, RAG, backend, or subscription features before at least 3 paid Snapshot orders.
+Do not build Radar, RAG, backend, or subscription features before at least 3 paid Snapshot or Fix Pack orders.
+
+## Delivery Templates
+
+### $29 Evidence Snapshot Outline
+
+```text
+Subject: MerchantFix Evidence Snapshot - [store/domain]
+
+Scope:
+- Store URL:
+- Affected product URL:
+- Issue path:
+- Materials reviewed:
+
+Summary:
+- Overall readiness: [low / medium / high]
+- Primary blocker:
+- Secondary gaps:
+
+Findings:
+1. [Blocker / Important / Cleanup] [Finding title]
+   Evidence observed:
+   Public URL checked:
+   Why it matters:
+   Suggested action:
+
+2. ...
+
+Suggested response paragraph:
+[Neutral paragraph the seller can adapt. No outcome-promise language.]
+
+Boundary:
+This review used only public pages and buyer-submitted context. It does not include account login, appeal submission, legal advice, or a promised platform decision.
+```
+
+### $99 Evidence Fix Pack Outline
+
+```text
+Subject: MerchantFix Evidence Fix Pack - [store/domain]
+
+Scope:
+- Store URL:
+- Issue paths:
+- Product URLs:
+- Policy URLs:
+
+Executive read:
+- Main risk cluster:
+- Fastest cleanup order:
+- Pages requiring edits:
+
+Page-by-page checklist:
+- Homepage:
+- Product page:
+- Contact/support:
+- Shipping policy:
+- Return/refund policy:
+- Privacy/terms:
+
+Before/after copy blocks:
+1. [Page/section]
+   Before:
+   After:
+
+Policy-link map:
+- Product page -> [links present/missing]
+- Footer -> [links present/missing]
+- Contact path -> [links present/missing]
+
+Revised response draft:
+[Neutral draft for the seller to adapt.]
+
+Boundary:
+This is a public-page evidence pack only. MerchantFix does not log in, edit the store, submit appeals, or promise any platform outcome.
+```
