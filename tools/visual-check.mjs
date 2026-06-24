@@ -11,7 +11,11 @@ const pages = [
   "sample-report.html",
   "terms.html",
   "errors/index.html",
+  "errors/misrepresentation.html",
   "errors/untrusted-store.html",
+  "errors/price-mismatch.html",
+  "errors/missing-value-gtin.html",
+  "errors/return-policy-missing.html",
   "errors/categories/trust-and-policy.html"
 ];
 

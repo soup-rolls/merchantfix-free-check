@@ -1,10 +1,11 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.resolve(__dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errorsDir = path.join(root, "errors");
 const siteUrl = "https://soup-rolls.github.io/merchantfix-free-check";
-const lastmod = "2026-06-22";
+const lastmod = "2026-06-24";
 
 const errors = [
   {
@@ -489,6 +490,104 @@ errors.push(
   })
 );
 
+const priorityPages = {
+  "misrepresentation": {
+    title: "GMC Misrepresentation Checker - Public Page Evidence Checklist",
+    h1: "GMC misrepresentation checker for public store evidence",
+    description: "Check public store evidence for Google Merchant Center misrepresentation issues: contact, policies, identity, product claims, and price consistency.",
+    lede: "Use this independent pre-audit page to map a misrepresentation issue to visible store evidence before you submit materials for review.",
+    intent: "Searchers usually need to understand why Merchant Center flagged trust, identity, policy, or product-claim evidence before they spend time on a review package.",
+    selfChecks: [
+      "Can a reviewer reach contact, shipping, return, refund, privacy, and terms pages from the product page or footer?",
+      "Do product claims, prices, discounts, and trust badges match what a buyer can verify publicly?",
+      "Is the business identity or support path visible without account login or checkout access?",
+      "Does the issue screenshot mention misrepresentation, suspicious store behavior, or unreliable promotions?"
+    ],
+    compareRows: [
+      ["Contact evidence", "No visible support path or only a generic form", "Contact page, support email/form, and expected response path visible"],
+      ["Policy evidence", "Thin refund/shipping copy, missing exceptions", "Linked policies with timing, regions, costs, returns, and exceptions"],
+      ["Claim evidence", "Claims or trust badges without public support", "Claims supported by product page, policy page, or store identity context"]
+    ],
+    related: ["untrusted-store", "return-policy-missing", "price-mismatch", "insufficient-contact-information"]
+  },
+  "untrusted-store": {
+    title: "Untrusted Store GMC Checker - Public Trust Evidence",
+    h1: "Untrusted store checker for Merchant Center trust signals",
+    description: "Review public trust evidence for an untrusted store issue: policies, contact path, support expectations, identity signals, and buyer-facing consistency.",
+    lede: "Use this page to check whether a public store has enough visible trust evidence before preparing a paid evidence snapshot.",
+    intent: "Searchers usually need a practical checklist for store trust evidence rather than a generic policy article.",
+    selfChecks: [
+      "Can a first-time buyer find contact, shipping, refund, returns, privacy, and terms links quickly?",
+      "Are support expectations, return windows, shipping regions, and exceptions specific enough?",
+      "Is the store identity consistent across homepage, product page, policies, and checkout-adjacent copy?",
+      "Does the page avoid exaggerated claims or unsupported trust badges?"
+    ],
+    compareRows: [
+      ["Policy access", "Policies exist but are hidden or empty", "Policies are linked from footer/product path and contain usable details"],
+      ["Support path", "Only social icons or a generic form", "Contact page with support route and expected handling context"],
+      ["Store identity", "No clear business or support identity", "Consistent store name, support identity, and public trust docs"]
+    ],
+    related: ["misrepresentation", "return-policy-missing", "insufficient-contact-information", "shipping-cost-mismatch"]
+  },
+  "price-mismatch": {
+    title: "Google Merchant Center Price Mismatch Checker",
+    h1: "Price mismatch checker for Merchant Center product pages",
+    description: "Compare feed price, product page price, sale price, variant price, and currency evidence before Merchant Center review.",
+    lede: "Use this page to map a price mismatch issue to the public product page evidence a reviewer can verify.",
+    intent: "Searchers usually need to identify whether the mismatch comes from feed price, variant selection, currency, sale price, or dynamic pricing.",
+    selfChecks: [
+      "Does the default product page price match the submitted feed price and currency?",
+      "Do variant prices change after selection, and is the affected variant visible in the URL or page state?",
+      "Is sale price separated from regular price with a clear sale window if applicable?",
+      "Does checkout, region, or currency switching change the visible price?"
+    ],
+    compareRows: [
+      ["Feed vs page", "Feed says 29.00 USD while page shows 39.00 USD", "Feed, product page, and visible currency all show 39.00 USD"],
+      ["Variant pricing", "Default variant differs from submitted variant", "Affected variant URL/state supports the submitted price"],
+      ["Sale pricing", "Sale banner changes price without feed alignment", "Sale price and effective dates align with public page evidence"]
+    ],
+    related: ["availability-mismatch", "shipping-cost-mismatch", "misrepresentation", "missing-value-price"]
+  },
+  "missing-value-gtin": {
+    title: "Missing Value [GTIN] Fix Checklist for Merchant Center",
+    h1: "Missing value [gtin] checklist for product identifier evidence",
+    description: "Check GTIN evidence for Merchant Center missing value [gtin] issues: branded products, barcode evidence, MPN fallback, and identifier consistency.",
+    lede: "Use this page to decide whether the affected product needs stronger identifier evidence before you prepare a repair or review package.",
+    intent: "Searchers usually need to know whether the item is a branded retail product, a custom product, or a variant with missing identifier evidence.",
+    selfChecks: [
+      "Is the product a branded retail item that normally has a manufacturer GTIN or barcode?",
+      "Does the product page show brand, manufacturer, model, or package identifier context?",
+      "Do variants have separate identifiers, or is one GTIN copied across unrelated options?",
+      "If the item is custom or handmade, is identifier_exists evidence consistent with the public page?"
+    ],
+    compareRows: [
+      ["Identifier field", "GTIN blank for a branded retail item", "GTIN present or identifier_exists context is supported"],
+      ["Variant evidence", "One empty identifier across all variants", "Variant-level GTIN/MPN evidence is mapped clearly"],
+      ["Public page support", "Brand visible but no identifier context", "Brand, model, barcode, or manufacturer evidence is visible"]
+    ],
+    related: ["invalid-value-gtin", "missing-value-brand", "missing-value-mpn", "identifier-exists-conflict"]
+  },
+  "return-policy-missing": {
+    title: "Return Policy Missing GMC Checklist - Public Policy Evidence",
+    h1: "Return policy missing checklist for Merchant Center review",
+    description: "Check return and refund policy evidence before Merchant Center review: return window, exceptions, footer links, product-page access, and refund terms.",
+    lede: "Use this page to check whether return and refund evidence is visible enough for a public-page review.",
+    intent: "Searchers usually need to identify whether the problem is a missing page, weak refund terms, hidden footer links, or inconsistent return wording.",
+    selfChecks: [
+      "Is the return or refund policy reachable from homepage, footer, product page, or checkout-adjacent navigation?",
+      "Does the policy define return window, refund timing, exceptions, final-sale items, and customer responsibility?",
+      "Are return, refund, shipping, and terms pages consistent with each other?",
+      "Does the policy page load publicly without login, country gate, or empty template content?"
+    ],
+    compareRows: [
+      ["Policy page", "No return page or blank policy template", "Public return/refund page with clear return window"],
+      ["Exceptions", "No mention of final sale, hygiene, or damaged item handling", "Exceptions and conditions are explicit"],
+      ["Navigation", "Policy not linked from normal public paths", "Footer/product path links make policy discoverable"]
+    ],
+    related: ["misrepresentation", "untrusted-store", "shipping-cost-mismatch", "insufficient-contact-information"]
+  }
+};
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -521,10 +620,11 @@ function pageShell({ title, description, canonical, body, jsonLd }) {
       .lede{max-width:620px;margin:24px 0 0;color:var(--muted);font-size:clamp(17px,2vw,22px);line-height:1.5}.meta{display:grid;gap:12px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
       .panel{border-left:2px solid var(--accent);padding-left:24px}.section{padding:54px 0;border-top:1px solid var(--line)}.section:first-of-type{border-top:0}
       ul{margin:18px 0 0;padding:0;list-style:none}li{padding:13px 0;border-bottom:1px solid var(--line);color:var(--muted);line-height:1.45}.code-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+      .answer-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:22px;margin-top:22px}.answer-box{border:1px solid var(--line);border-radius:8px;background:rgba(251,253,252,.76);padding:18px}.answer-box strong{display:block;margin-bottom:8px}.comparison{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}.comparison th,.comparison td{padding:13px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.comparison th{color:var(--ink);font-size:12px;text-transform:uppercase}.comparison td{color:var(--muted)}.related{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.related a{border:1px solid var(--line);border-radius:999px;padding:9px 12px;text-decoration:none;color:var(--accent-dark);font-weight:800;font-size:14px;background:#fbfdfc}
       pre{margin:0;padding:18px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:#fbfdfc;font-size:13px;line-height:1.45}code{font-family:"SFMono-Regular",Consolas,monospace}.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
       .primary,.secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:6px;text-decoration:none;font-weight:900}.primary{background:var(--accent);color:white}.secondary{border:1px solid var(--line);background:#fbfdfc;color:var(--accent-dark)}
       .note{margin-top:16px;color:var(--muted);font-size:13px;line-height:1.45}.index-list a{display:flex;justify-content:space-between;gap:16px;text-decoration:none}.index-list strong{color:var(--ink)}.index-list span{color:var(--muted)}.directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:54px 0;border-top:1px solid var(--line)}.directory-links{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:14px}.directory-links a{color:var(--accent-dark);font-weight:800;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
-      @media(max-width:860px){.hero,.code-grid,.directory{grid-template-columns:1fr}.nav{align-items:flex-start}.index-list a{display:block}.primary,.secondary{width:100%}}@media(prefers-color-scheme:dark){:root{color-scheme:dark;--ink:#f4f6f1;--muted:#bcc4b6;--line:#314036;--paper:#101612;--accent:#78c5a7;--accent-dark:#a9e3c7}body{background:linear-gradient(180deg,#101612 0%,#0d120f 100%)}.nav{background:rgba(16,22,18,.92)}.secondary,pre{background:#141a16}.primary{color:#0d120f}.directory-links a{color:var(--accent)}}
+      @media(max-width:860px){.hero,.code-grid,.directory,.answer-grid{grid-template-columns:1fr}.nav{align-items:flex-start}.index-list a{display:block}.primary,.secondary{width:100%}}@media(prefers-color-scheme:dark){:root{color-scheme:dark;--ink:#f4f6f1;--muted:#bcc4b6;--line:#314036;--paper:#101612;--accent:#78c5a7;--accent-dark:#a9e3c7}body{background:linear-gradient(180deg,#101612 0%,#0d120f 100%)}.nav{background:rgba(16,22,18,.92)}.secondary,pre,.answer-box,.related a{background:#141a16}.primary{color:#0d120f}.directory-links a{color:var(--accent)}}
     </style>
     <script type="application/ld+json">${JSON.stringify(jsonLd, null, 2)}</script>
   </head>
@@ -541,12 +641,36 @@ function pageShell({ title, description, canonical, body, jsonLd }) {
 
 function errorPage(item) {
   const url = `${siteUrl}/errors/${item.slug}.html`;
-  const description = `${item.code}: public-page evidence checklist, common gaps, and before/after JSON for Merchant Center review preparation.`;
+  const priority = priorityPages[item.slug];
+  const description = priority?.description || `${item.code}: public-page evidence checklist, common gaps, and before/after JSON for Merchant Center review preparation.`;
+  const pageTitle = priority?.title || `${item.code} - MerchantFix Error Library`;
+  const h1 = priority?.h1 || item.code;
+  const lede = priority?.lede || item.summary;
+  const faqs = [
+    {
+      name: `What does ${item.code} mean?`,
+      text: item.summary
+    },
+    {
+      name: `What evidence should I prepare for ${item.code}?`,
+      text: item.evidence.join("; ")
+    },
+    ...(priority ? [
+      {
+        name: `Can MerchantFix fix ${item.code} automatically?`,
+        text: "No. MerchantFix provides an independent public-page evidence pre-check and review package. It does not log in, submit appeals, or guarantee a platform decision."
+      },
+      {
+        name: `What should I check first for ${item.code}?`,
+        text: priority.selfChecks.join("; ")
+      }
+    ] : [])
+  ];
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": `${item.code} - Merchant Center evidence checklist`,
+      "headline": priority?.h1 || `${item.code} - Merchant Center evidence checklist`,
       "description": description,
       "dateModified": lastmod,
       "mainEntityOfPage": url,
@@ -556,18 +680,11 @@ function errorPage(item) {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": `What does ${item.code} mean?`,
-          "acceptedAnswer": { "@type": "Answer", "text": item.summary }
-        },
-        {
-          "@type": "Question",
-          "name": `What evidence should I prepare for ${item.code}?`,
-          "acceptedAnswer": { "@type": "Answer", "text": item.evidence.join("; ") }
-        }
-      ]
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.name,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.text }
+      }))
     },
     {
       "@context": "https://schema.org",
@@ -579,12 +696,46 @@ function errorPage(item) {
       ]
     }
   ];
+  const prioritySections = priority ? `
+      <section class="section">
+        <p class="eyebrow">Search intent answer</p>
+        <h2>What to check first</h2>
+        <div class="answer-grid">
+          <div class="answer-box">
+            <strong>Why this page exists</strong>
+            <span>${escapeHtml(priority.intent)}</span>
+          </div>
+          <div class="answer-box">
+            <strong>Fast self-check</strong>
+            <ul>${priority.selfChecks.map(text => `<li>${escapeHtml(text)}</li>`).join("")}</ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Evidence comparison</p>
+        <h2>Weak vs review-ready public evidence</h2>
+        <table class="comparison">
+          <thead><tr><th>Area</th><th>Weak signal</th><th>Cleaner signal</th></tr></thead>
+          <tbody>${priority.compareRows.map(row => `<tr><td>${escapeHtml(row[0])}</td><td>${escapeHtml(row[1])}</td><td>${escapeHtml(row[2])}</td></tr>`).join("")}</tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Related high-intent checks</p>
+        <h2>Continue the evidence chain</h2>
+        <div class="related">${priority.related.map(slug => {
+          const related = errors.find(error => error.slug === slug);
+          return related ? `<a href="${related.slug}.html">${escapeHtml(related.code)}</a>` : "";
+        }).join("")}</div>
+      </section>` : "";
+
   const body = `<main>
       <section class="hero">
         <div>
           <p class="eyebrow">${escapeHtml(item.category)}</p>
-          <h1>${escapeHtml(item.code)}</h1>
-          <p class="lede">${escapeHtml(item.summary)}</p>
+          <h1>${escapeHtml(h1)}</h1>
+          <p class="lede">${escapeHtml(lede)}</p>
           <div class="meta">
             <span>Scope: public-page evidence readiness</span>
             <span>Boundary: not Google, no account login, no appeal submission</span>
@@ -606,6 +757,8 @@ function errorPage(item) {
         <h2>What to collect</h2>
         <ul>${item.evidence.map(text => `<li>${escapeHtml(text)}</li>`).join("")}</ul>
       </section>
+
+      ${prioritySections}
 
       <section class="section">
         <p class="eyebrow">Common public-page gaps</p>
@@ -640,7 +793,7 @@ function errorPage(item) {
       </section>
     </main>`;
   return pageShell({
-    title: `${item.code} - MerchantFix Error Library`,
+    title: pageTitle,
     description,
     canonical: url,
     body,

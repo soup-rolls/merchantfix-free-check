@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Misrepresentation - MerchantFix Error Library</title>
-    <meta name="description" content="Misrepresentation: public-page evidence checklist, common gaps, and before/after JSON for Merchant Center review preparation." />
+    <title>GMC Misrepresentation Checker - Public Page Evidence Checklist</title>
+    <meta name="description" content="Check public store evidence for Google Merchant Center misrepresentation issues: contact, policies, identity, product claims, and price consistency." />
     <link rel="canonical" href="https://soup-rolls.github.io/merchantfix-free-check/errors/misrepresentation.html" />
     <link rel="icon" href="../assets/merchantfix-icon.png" />
     <style>
@@ -17,18 +17,19 @@
       .lede{max-width:620px;margin:24px 0 0;color:var(--muted);font-size:clamp(17px,2vw,22px);line-height:1.5}.meta{display:grid;gap:12px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
       .panel{border-left:2px solid var(--accent);padding-left:24px}.section{padding:54px 0;border-top:1px solid var(--line)}.section:first-of-type{border-top:0}
       ul{margin:18px 0 0;padding:0;list-style:none}li{padding:13px 0;border-bottom:1px solid var(--line);color:var(--muted);line-height:1.45}.code-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+      .answer-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:22px;margin-top:22px}.answer-box{border:1px solid var(--line);border-radius:8px;background:rgba(251,253,252,.76);padding:18px}.answer-box strong{display:block;margin-bottom:8px}.comparison{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}.comparison th,.comparison td{padding:13px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.comparison th{color:var(--ink);font-size:12px;text-transform:uppercase}.comparison td{color:var(--muted)}.related{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.related a{border:1px solid var(--line);border-radius:999px;padding:9px 12px;text-decoration:none;color:var(--accent-dark);font-weight:800;font-size:14px;background:#fbfdfc}
       pre{margin:0;padding:18px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:#fbfdfc;font-size:13px;line-height:1.45}code{font-family:"SFMono-Regular",Consolas,monospace}.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
       .primary,.secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:6px;text-decoration:none;font-weight:900}.primary{background:var(--accent);color:white}.secondary{border:1px solid var(--line);background:#fbfdfc;color:var(--accent-dark)}
       .note{margin-top:16px;color:var(--muted);font-size:13px;line-height:1.45}.index-list a{display:flex;justify-content:space-between;gap:16px;text-decoration:none}.index-list strong{color:var(--ink)}.index-list span{color:var(--muted)}.directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:54px 0;border-top:1px solid var(--line)}.directory-links{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:14px}.directory-links a{color:var(--accent-dark);font-weight:800;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
-      @media(max-width:860px){.hero,.code-grid,.directory{grid-template-columns:1fr}.nav{align-items:flex-start}.index-list a{display:block}.primary,.secondary{width:100%}}@media(prefers-color-scheme:dark){:root{color-scheme:dark;--ink:#f4f6f1;--muted:#bcc4b6;--line:#314036;--paper:#101612;--accent:#78c5a7;--accent-dark:#a9e3c7}body{background:linear-gradient(180deg,#101612 0%,#0d120f 100%)}.nav{background:rgba(16,22,18,.92)}.secondary,pre{background:#141a16}.primary{color:#0d120f}.directory-links a{color:var(--accent)}}
+      @media(max-width:860px){.hero,.code-grid,.directory,.answer-grid{grid-template-columns:1fr}.nav{align-items:flex-start}.index-list a{display:block}.primary,.secondary{width:100%}}@media(prefers-color-scheme:dark){:root{color-scheme:dark;--ink:#f4f6f1;--muted:#bcc4b6;--line:#314036;--paper:#101612;--accent:#78c5a7;--accent-dark:#a9e3c7}body{background:linear-gradient(180deg,#101612 0%,#0d120f 100%)}.nav{background:rgba(16,22,18,.92)}.secondary,pre,.answer-box,.related a{background:#141a16}.primary{color:#0d120f}.directory-links a{color:var(--accent)}}
     </style>
     <script type="application/ld+json">[
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "Misrepresentation - Merchant Center evidence checklist",
-    "description": "Misrepresentation: public-page evidence checklist, common gaps, and before/after JSON for Merchant Center review preparation.",
-    "dateModified": "2026-06-22",
+    "headline": "GMC misrepresentation checker for public store evidence",
+    "description": "Check public store evidence for Google Merchant Center misrepresentation issues: contact, policies, identity, product claims, and price consistency.",
+    "dateModified": "2026-06-24",
     "mainEntityOfPage": "https://soup-rolls.github.io/merchantfix-free-check/errors/misrepresentation.html",
     "about": [
       "Google Merchant Center",
@@ -58,6 +59,22 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Store URL and affected product URL; Contact, refund, return, and shipping policy URLs; Business identity or support evidence; Exact Merchant Center issue text or screenshot"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can MerchantFix fix Misrepresentation automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. MerchantFix provides an independent public-page evidence pre-check and review package. It does not log in, submit appeals, or guarantee a platform decision."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I check first for Misrepresentation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Can a reviewer reach contact, shipping, return, refund, privacy, and terms pages from the product page or footer?; Do product claims, prices, discounts, and trust badges match what a buyer can verify publicly?; Is the business identity or support path visible without account login or checkout access?; Does the issue screenshot mention misrepresentation, suspicious store behavior, or unreliable promotions?"
         }
       }
     ]
@@ -97,8 +114,8 @@
       <section class="hero">
         <div>
           <p class="eyebrow">Trust and policy</p>
-          <h1>Misrepresentation</h1>
-          <p class="lede">Merchant Center may not have enough public evidence to trust the store, policies, business identity, or product claims.</p>
+          <h1>GMC misrepresentation checker for public store evidence</h1>
+          <p class="lede">Use this independent pre-audit page to map a misrepresentation issue to visible store evidence before you submit materials for review.</p>
           <div class="meta">
             <span>Scope: public-page evidence readiness</span>
             <span>Boundary: not Google, no account login, no appeal submission</span>
@@ -119,6 +136,37 @@
         <p class="eyebrow">Evidence needed</p>
         <h2>What to collect</h2>
         <ul><li>Store URL and affected product URL</li><li>Contact, refund, return, and shipping policy URLs</li><li>Business identity or support evidence</li><li>Exact Merchant Center issue text or screenshot</li></ul>
+      </section>
+
+      
+      <section class="section">
+        <p class="eyebrow">Search intent answer</p>
+        <h2>What to check first</h2>
+        <div class="answer-grid">
+          <div class="answer-box">
+            <strong>Why this page exists</strong>
+            <span>Searchers usually need to understand why Merchant Center flagged trust, identity, policy, or product-claim evidence before they spend time on a review package.</span>
+          </div>
+          <div class="answer-box">
+            <strong>Fast self-check</strong>
+            <ul><li>Can a reviewer reach contact, shipping, return, refund, privacy, and terms pages from the product page or footer?</li><li>Do product claims, prices, discounts, and trust badges match what a buyer can verify publicly?</li><li>Is the business identity or support path visible without account login or checkout access?</li><li>Does the issue screenshot mention misrepresentation, suspicious store behavior, or unreliable promotions?</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Evidence comparison</p>
+        <h2>Weak vs review-ready public evidence</h2>
+        <table class="comparison">
+          <thead><tr><th>Area</th><th>Weak signal</th><th>Cleaner signal</th></tr></thead>
+          <tbody><tr><td>Contact evidence</td><td>No visible support path or only a generic form</td><td>Contact page, support email/form, and expected response path visible</td></tr><tr><td>Policy evidence</td><td>Thin refund/shipping copy, missing exceptions</td><td>Linked policies with timing, regions, costs, returns, and exceptions</td></tr><tr><td>Claim evidence</td><td>Claims or trust badges without public support</td><td>Claims supported by product page, policy page, or store identity context</td></tr></tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Related high-intent checks</p>
+        <h2>Continue the evidence chain</h2>
+        <div class="related"><a href="untrusted-store.html">Untrusted store</a><a href="return-policy-missing.html">Return policy missing</a><a href="price-mismatch.html">Price mismatch</a><a href="insufficient-contact-information.html">Insufficient contact information</a></div>
       </section>
 
       <section class="section">

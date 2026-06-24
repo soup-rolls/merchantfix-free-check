@@ -1,9 +1,10 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = path.resolve(__dirname, "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://soup-rolls.github.io/merchantfix-free-check";
-const lastmod = "2026-06-22";
+const lastmod = "2026-06-24";
 
 const categoryPages = [
   {
@@ -516,7 +517,7 @@ function renderCategoryIndex(page) {
 }
 
 function llmsTxt() {
-  return `# MerchantFix\n\nMerchantFix is an independent public-page evidence review for stores preparing Merchant Center materials.\n\n## Core pages\n- ${siteUrl}/\n- ${siteUrl}/errors/\n- ${siteUrl}/errors/categories/\n- ${siteUrl}/about.html\n- ${siteUrl}/contact.html\n- ${siteUrl}/privacy.html\n- ${siteUrl}/terms.html\n\n## Category pages\n- ${siteUrl}/errors/categories/product-identifiers.html\n- ${siteUrl}/errors/categories/content-and-landing.html\n- ${siteUrl}/errors/categories/price-and-availability.html\n- ${siteUrl}/errors/categories/shipping-and-tax.html\n- ${siteUrl}/errors/categories/variants-and-attributes.html\n- ${siteUrl}/errors/categories/trust-and-policy.html\n\n## Boundaries\n- Free preview runs locally in the browser.\n- Full materials enter Tally only when the user chooses to submit them.\n- No account login.\n- No appeal submission.\n- No promised platform decision.\n\n## Reference pages\n- ${siteUrl}/errors/missing-value-gtin.html\n- ${siteUrl}/errors/price-mismatch.html\n- ${siteUrl}/errors/shipping-cost-mismatch.html\n- ${siteUrl}/errors/misrepresentation.html\n`;
+  return `# MerchantFix\n\nMerchantFix is an independent public-page evidence review for stores preparing Merchant Center materials.\n\n## Core pages\n- ${siteUrl}/\n- ${siteUrl}/errors/\n- ${siteUrl}/errors/categories/\n- ${siteUrl}/about.html\n- ${siteUrl}/contact.html\n- ${siteUrl}/privacy.html\n- ${siteUrl}/terms.html\n\n## Category pages\n- ${siteUrl}/errors/categories/product-identifiers.html\n- ${siteUrl}/errors/categories/content-and-landing.html\n- ${siteUrl}/errors/categories/price-and-availability.html\n- ${siteUrl}/errors/categories/shipping-and-tax.html\n- ${siteUrl}/errors/categories/variants-and-attributes.html\n- ${siteUrl}/errors/categories/trust-and-policy.html\n\n## Boundaries\n- Free preview runs locally in the browser.\n- Full materials enter Tally only when the user chooses to submit them.\n- No account login.\n- No appeal submission.\n- No promised platform decision.\n\n## Priority reference pages\n- ${siteUrl}/errors/misrepresentation.html\n- ${siteUrl}/errors/untrusted-store.html\n- ${siteUrl}/errors/price-mismatch.html\n- ${siteUrl}/errors/missing-value-gtin.html\n- ${siteUrl}/errors/return-policy-missing.html\n\n## Additional reference pages\n- ${siteUrl}/errors/shipping-cost-mismatch.html\n- ${siteUrl}/errors/insufficient-contact-information.html\n`;
 }
 
 function sitemapUrls() {
@@ -527,6 +528,9 @@ function sitemapUrls() {
     `${siteUrl}/contact.html`,
     `${siteUrl}/privacy.html`,
     `${siteUrl}/terms.html`,
+    `${siteUrl}/checkout.html`,
+    `${siteUrl}/thank-you.html`,
+    `${siteUrl}/sample-report.html`,
     `${siteUrl}/errors/categories/`,
     ...categoryPages.map(page => `${siteUrl}/errors/categories/${page.slug}.html`)
   ].forEach(url => urls.add(url));
